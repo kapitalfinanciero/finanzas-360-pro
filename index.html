@@ -598,9 +598,10 @@
             text-align: center;
             margin-top: 4rem;
             padding: 40px;
-            background: linear-gradient(135deg, #4f6fb7, #3b5998);
             border-radius: 15px;
-            color: white;
+            /* === AJUSTE DE COLOR REALIZADO AQUÍ === */
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa); 
+            color: #2d3748;
         }
 
         .cta-section h3 {
@@ -612,7 +613,15 @@
         .cta-section p {
             font-size: 1.2rem;
             margin-bottom: 25px;
-            opacity: 0.9;
+            /* === AJUSTE DE COLOR REALIZADO AQUÍ === */
+            color: #718096;
+            opacity: 1;
+        }
+        
+        .cta-section .cta-button {
+            /* === AJUSTE DE COLOR REALIZADO AQUÍ === */
+            background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%);
+            color: white;
         }
 
         /* Contact Form Styles */
@@ -917,9 +926,9 @@
                     </div>
                 </div>
 
-                <div class="cta-section">
+                <div class="cta-section" style="background: linear-gradient(135deg, #e9ecef, #f8f9fa); color: #2d3748;">
                     <h3>¿Listo para Transformar tu Futuro Financiero?</h3>
-                    <p>Con nuestra combinación única de experiencia empresarial y análisis de datos, hemos creado metodologías probadas que transforman la realidad financiera de nuestros clientes.</p>
+                    <p style="color: #718096;">Con nuestra combinación única de experiencia empresarial y análisis de datos, hemos creado metodologías probadas que transforman la realidad financiera de nuestros clientes.</p>
                     <a href="https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132" class="cta-button" target="_blank">Comienza Tu Transformación</a>
                 </div>
             </div>
@@ -1116,9 +1125,10 @@
         }
 
         function printSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('printable'));
+            
             const sectionToPrint = document.getElementById(sectionId);
             if (sectionToPrint) {
-                document.querySelectorAll('.section').forEach(s => s.classList.remove('printable'));
                 sectionToPrint.classList.add('printable');
                 window.print();
             }
