@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kapital Financiero - Add-On Finanzas 360 Pro</title>
     <style>
+        /* ... (el mismo CSS que antes) ... */
         * {
             margin: 0;
             padding: 0;
@@ -125,7 +126,7 @@
             color: white;
             transform: translateY(-2px);
         }
-        
+
         /* Hamburger Menu Styles */
         .hamburger-menu {
             display: none;
@@ -139,7 +140,7 @@
         .hamburger-menu:hover {
             background: rgba(255,255,255,0.1);
         }
-        
+
         .hamburger-menu div {
             width: 25px;
             height: 3px;
@@ -148,7 +149,7 @@
             transition: 0.4s;
             border-radius: 2px;
         }
-        
+
         /* Mobile Navigation Styles */
         .mobile-nav {
             display: none;
@@ -167,7 +168,7 @@
             transition: opacity 0.3s ease, visibility 0.3s;
             visibility: hidden;
         }
-        
+
         .mobile-nav.active {
             display: flex;
             opacity: 1;
@@ -178,7 +179,7 @@
             list-style: none;
             text-align: center;
         }
-        
+
         .mobile-nav li {
             margin: 2rem 0;
             transform: translateY(20px);
@@ -212,7 +213,7 @@
             background: rgba(255,255,255,0.1);
             transform: scale(1.05);
         }
-        
+
         .close-icon {
             position: absolute;
             top: 2rem;
@@ -243,7 +244,7 @@
             padding-left: 2rem;
             padding-right: 2rem;
         }
-        
+
         section#inicio {
             padding-top: 0;
         }
@@ -541,7 +542,7 @@
             background: white;
             box-shadow: 0 0 0 3px rgba(79, 111, 183, 0.1);
         }
-        
+
         /* Social Icons & Footer Styles */
         .social-icon {
             width: 20px;
@@ -698,7 +699,7 @@
             <ul class="nav-menu">
                 <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
                 <li><a href="#" onclick="showSection('privacidad')">Privacidad</a></li>
-                <li><a href="#" onclick="showSection('terminos')">Términos</a></li>
+                <li><a href="#" onclick="showSection('terminos')">**Términos y Condiciones**</a></li>
                 <li><a href="#" onclick="showSection('ayuda')">Ayuda</a></li>
             </ul>
             <div class="hamburger-menu">
@@ -714,7 +715,7 @@
         <ul>
             <li><a href="#" onclick="showSection('inicio', true)">Inicio</a></li>
             <li><a href="#" onclick="showSection('privacidad', true)">Privacidad</a></li>
-            <li><a href="#" onclick="showSection('terminos', true)">Términos</a></li>
+            <li><a href="#" onclick="showSection('terminos', true)">**Términos y Condiciones**</a></li>
             <li><a href="#" onclick="showSection('ayuda', true)">Ayuda</a></li>
         </ul>
     </div>
@@ -725,8 +726,8 @@
                 <div class="hero-content">
                     <h1>Finanzas 360 Pro</h1>
                     <p>Controla tus finanzas con el Add-On para Google Sheets™ que te ofrece análisis avanzados y reportes automáticos.</p>
-                    <img src="https://raw.githubusercontent.com/kapitalfinanciero/finanzas-360-pro/main/Ultima%20Versi%C3%B3n%20Hotmart%20-%20copia.png" alt="Dashboard profesional de Finanzas 360 Pro" class="hero-image">
-                    <a href="https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132" class="cta-button" target="_blank">🚀 Comenzar Ahora</a>
+                    <img src="[https://raw.githubusercontent.com/kapitalfinanciero/finanzas-360-pro/main/Ultima%20Versi%C3%B3n%20Hotmart%20-%20copia.png](https://raw.githubusercontent.com/kapitalfinanciero/finanzas-360-pro/main/Ultima%20Versi%C3%B3n%20Hotmart%20-%20copia.png)" alt="Dashboard profesional de Finanzas 360 Pro" class="hero-image">
+                    <a href="[https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132](https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132)" class="cta-button" target="_blank">🚀 Comenzar Ahora</a>
                 </div>
             </div>
 
@@ -749,7 +750,7 @@
             </div>
         </section>
 
-        <section id="privacidad" class="section hidden">
+        <section id="privacidad" class="section hidden printable">
             <div class="content-section">
                 <h2>Política de Privacidad</h2>
                 <p><strong>Fecha de Entrada en Vigor:</strong> 11 de julio de 2025</p>
@@ -784,12 +785,12 @@
             </div>
         </section>
 
-        <section id="terminos" class="section hidden">
+        <section id="terminos" class="section hidden printable">
             <div class="content-section">
                 <h2>Términos y Condiciones del Servicio</h2>
                 <p><strong>Última actualización:</strong> 11 de julio de 2025</p>
                 <h3>1. ACEPTACIÓN DE LOS TÉRMINOS</h3>
-                <p>Al instalar y utilizar el <strong>Add-On "Finanzas 360 Pro"</strong> (en adelante, "El Servicio"), aceptas y te comprometes a cumplir los presentes Términos y Condiciones. Si no estás de acuerdo, no instales ni utilices el Servicio.</p>
+                <p>Al instalar y utilizar el <strong>Add-On "Finanzas 360 Pro"</strong> (en adelante, "El Servicio"), aceptas y te comprometes a cumplir los presentes **Términos y Condiciones**. Si no estás de acuerdo, no instales ni utilices el Servicio.</p>
                 <h3>2. LICENCIA DE USO</h3>
                 <p>Te concedemos una licencia limitada, personal, no exclusiva, intransferible y revocable para usar El Servicio para fines personales y no comerciales.</p>
                 <h3>3. PROPIEDAD INTELECTUAL</h3>
@@ -805,160 +806,5 @@
             </div>
         </section>
 
-        <section id="ayuda" class="section hidden">
-            <div class="content-section">
-                <h2>Centro de Ayuda - Add-On "Finanzas 360 Pro"</h2>
-                <p>¡Bienvenido! Aquí resolvemos tus dudas para que saques el máximo provecho de tu Add-On.</p>
-                <h3>🚀 Preguntas Frecuentes (FAQ)</h3>
-                <h4>¿Cómo empiezo? ¡Es mi primera vez!</h4>
-                <div class="highlight-box info">
-                    <ol>
-                        <li>Abre el Add-On desde el menú `Extensiones > Finanzas 360 Pro > 🚀 Iniciar`.</li>
-                        <li>En la barra lateral, haz clic en el botón **"1️⃣ Vincular Mi Formulario"**. Este paso es crucial, ya que creará un formulario personal para que registres tus movimientos y lo conectará todo.</li>
-                        <li>Una vez vinculado, encontrarás la URL de tu formulario en la hoja **"Configuración"**, celda F4. ¡Guárdala en tus favoritos!</li>
-                    </ol>
-                </div>
-                <h4>¿Cómo registro un nuevo gasto o ingreso?</h4>
-                <p>Usa el formulario de Google que se creó en el paso anterior. Es la forma más rápida y ordenada. Las respuestas se registrarán y organizarán automáticamente en tu hoja de cálculo.</p>
-                <h4>Mis categorías en el formulario no están actualizadas.</h4>
-                <p>¡Fácil! Si añadiste nuevas categorías en la hoja "Configuración", simplemente haz clic en el botón **"🔄 Sincronizar Opciones"** en la barra lateral del Add-On. Esto actualizará las preguntas de tu formulario al instante.</p>
-                <h4>Las alertas o los informes no me llegan al correo.</h4>
-                <p>Verifica que tu correo electrónico esté correctamente escrito en la hoja **"Configuración"**, celda D4. Además, asegúrate de haber activado las automatizaciones usando los botones correspondientes en la barra lateral del Add-On.</p>
-                <h4>¿Están seguros mis datos financieros?</h4>
-                <p>¡Totalmente! Tus datos viven y se procesan únicamente dentro de tu propia cuenta de Google. Nosotros no tenemos acceso ni guardamos copia de ellos.</p>
-                <h3>📞 Contacto y Soporte</h3>
-                <p>Si necesitas ayuda adicional, nuestro equipo de soporte está disponible:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 1rem;"><strong>Email:</strong> proyectokba@gmail.com</li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366; text-decoration: none; display: inline-flex; align-items: center;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="social-icon">
-                            <strong>¡Chatea con nosotros en WhatsApp!</strong>
-                        </a>
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000; text-decoration: none; display: inline-flex; align-items: center;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo" class="social-icon">
-                            <strong>Kapital Financiero en YouTube</strong>
-                        </a>
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F; text-decoration: none; display: inline-flex; align-items: center;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="social-icon">
-                            <strong>@kapitalfinanciero en Instagram</strong>
-                        </a>
-                    </li>
-                    <li><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora Colombia)</li>
-                    <li><strong>Tiempo de respuesta:</strong> Máximo 24 horas</li>
-                </ul>
-                <div class="contact-form">
-                    <h3>Formulario de Contacto</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="asunto">Asunto</label>
-                            <input type="text" id="asunto" name="asunto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#" onclick="showSection('inicio')">Inicio</a>
-                <a href="#" onclick="showSection('privacidad')">Privacidad</a>
-                <a href="#" onclick="showSection('terminos')">Términos</a>
-                <a href="#" onclick="showSection('ayuda')">Ayuda</a>
-                <a href="https://wa.link/8t0nck" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon"> WhatsApp
-                </a>
-                <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="social-icon"> YouTube
-                </a>
-                <a href="https://www.instagram.com/kapitalfinanciero" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon"> Instagram
-                </a>
-            </div>
-            <p>© 2025 Kapital Financiero. Todos los derechos reservados.</p>
-            <p>Una herramienta para tu tranquilidad financiera.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger-menu');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const closeNav = document.querySelector('.close-icon');
-
-            const toggleNav = () => mobileNav.classList.toggle('active');
-
-            hamburger.addEventListener('click', toggleNav);
-            closeNav.addEventListener('click', toggleNav);
-            
-            // Re-vincular eventos para los enlaces del menú móvil
-             document.querySelectorAll('.mobile-nav a').forEach(link => {
-                const sectionId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showSection(sectionId, true);
-                });
-            });
-        });
-
-        function showSection(sectionId, fromMobile = false) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active', 'printable');
-                section.classList.add('hidden');
-            });
-            
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-                targetSection.classList.add('active');
-            }
-            
-            if (fromMobile) {
-                document.querySelector('.mobile-nav').classList.remove('active');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function printSection(sectionId) {
-            const sectionToPrint = document.getElementById(sectionId);
-            if (sectionToPrint) {
-                // Prepara la página para la impresión añadiendo la clase 'printable' a la sección deseada.
-                // El CSS @media print se encargará del resto.
-                sectionToPrint.classList.add('printable');
-                window.print();
-                // Opcional: remover la clase después de imprimir.
-                // Se puede hacer con un pequeño delay o en el evento onafterprint.
-                setTimeout(() => {
-                    sectionToPrint.classList.remove('printable');
-                }, 1000);
-            }
-        }
-
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Gracias por tu mensaje. Te responderemos pronto.');
-            this.reset();
-        });
-    </script>
-</body>
-</html>
+        <section id="ayuda" class="section hidden printable">
+            <div class="
