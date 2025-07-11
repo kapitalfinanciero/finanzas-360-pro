@@ -170,6 +170,10 @@
             padding-left: 2rem;
             padding-right: 2rem;
         }
+        
+        section#inicio {
+            padding-top: 0; /* Quitamos el padding superior de la primera sección */
+        }
 
         .section.active {
             display: block;
@@ -183,7 +187,8 @@
         .hero {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             text-align: center;
-            padding: 6rem 0;
+            /* === AJUSTE REALIZADO AQUÍ === */
+            padding: 3rem 0 4rem 0; 
         }
 
         .hero h1 {
@@ -408,18 +413,14 @@
             body {
                 background-color: white;
             }
-            .header, .footer, .features, .print-button {
+            .header, .footer, .features, .print-button, .hero-image, .cta-button, .hamburger-menu {
                 display: none;
             }
-            .main-content {
-                margin-top: 0;
-            }
-            .section {
-                display: none !important; /* Ocultar todas las secciones */
-                padding: 0;
+            body > * {
+                display: none;
             }
             .section.printable {
-                display: block !important; /* Mostrar solo la sección imprimible */
+                display: block !important;
                 box-shadow: none;
                 margin: 0;
                 padding: 1rem;
@@ -489,7 +490,7 @@
     </header>
 
     <div class="mobile-nav">
-        <div class="close-icon">&times;</div>
+        <div class="close-icon">×</div>
         <ul>
             <li><a href="#" onclick="showSection('inicio', true)">Inicio</a></li>
             <li><a href="#" onclick="showSection('privacidad', true)">Privacidad</a></li>
@@ -720,44 +721,38 @@
         hamburger.addEventListener('click', toggleNav);
         closeNav.addEventListener('click', toggleNav);
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', toggleNav);
+            // El listener se asigna una vez, la lógica de cierre está en showSection
         });
 
         function showSection(sectionId, fromMobile = false) {
-            // Ocultar todas las secciones
             document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
+                section.classList.remove('active', 'printable');
                 section.classList.add('hidden');
             });
             
-            // Mostrar la sección seleccionada
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.remove('hidden');
                 targetSection.classList.add('active');
             }
             
-            // Cerrar el menú móvil si se navega desde él
             if (fromMobile) {
                 mobileNav.classList.remove('active');
             }
 
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Función para imprimir una sección (Solución Mejorada)
         function printSection(sectionId) {
             const sectionToPrint = document.getElementById(sectionId);
             if(sectionToPrint) {
-                // Añade una clase al body para aplicar estilos de impresión específicos
+                // Prepara la página para la impresión solo con CSS
                 document.querySelectorAll('.section').forEach(s => s.classList.remove('printable'));
                 sectionToPrint.classList.add('printable');
                 window.print();
             }
         }
 
-        // Manejar el envío del formulario de contacto
         document.querySelector('.contact-form form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Gracias por tu mensaje. Te responderemos pronto.');
