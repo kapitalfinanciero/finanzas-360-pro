@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapital Financiero - Gestión Financiera Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #4f6fb7;
+            font-weight: 900;
+            letter-spacing: -1px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: logoShine 3s ease-in-out infinite;
+        }
+
+        @keyframes logoShine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .section {
+            padding: 4rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 111, 183, 0.3);
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #718096;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .content-section h3 {
+            color: #4a5568;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .content-section p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #e6fffa;
+            border: 1px solid #81e6d9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box.warning {
+            background: #fffbeb;
+            border-color: #f6e05e;
+        }
+
+        .highlight-box.info {
+            background: #ebf8ff;
+            border-color: #90cdf4;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4f6fb7;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo" onclick="showSection('inicio')">
+                <div class="logo-icon">KF</div>
+                <span>Kapital Financiero</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('privacidad')">Privacidad</a></li>
+                <li><a href="#" onclick="showSection('terminos')">Términos</a></li>
+                <li><a href="#" onclick="showSection('ayuda')">Ayuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Inicio Section -->
+        <section id="inicio" class="section active">
+            <div class="hero">
+                <h1>Gestión Financiera Inteligente</h1>
+                <p>Controla tus finanzas con análisis avanzados y reportes automáticos</p>
+                <a href="https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132" class="cta-button" target="_blank">Comenzar Ahora</a>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Análisis Detallado</h3>
+                    <p>Reportes financieros completos con métricas avanzadas y tendencias históricas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Seguimiento Inteligente</h3>
+                    <p>Monitoreo automático de gastos, ingresos y metas financieras personalizadas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Recomendaciones</h3>
+                    <p>Sugerencias personalizadas basadas en tu comportamiento financiero</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>¿Por qué elegir Kapital Financiero?</h2>
+                <p>Nuestra plataforma combina tecnología avanzada con simplicidad de uso para ofrecerte el control total sobre tus finanzas personales con Kapital Financiero.</p>
+                
+                <div class="highlight-box">
+                    <strong>✨ Funcionalidades principales:</strong>
+                    <ul>
+                        <li>Reportes automatizados por email</li>
+                        <li>Análisis de tendencias y patrones</li>
+                        <li>Proyecciones financieras</li>
+                        <li>Alertas personalizadas</li>
+                        <li>Sincronización multi-dispositivo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Política de Privacidad -->
+        <section id="privacidad" class="section hidden">
+            <div class="content-section">
+                <h2>Política de Privacidad</h2>
+                <p><strong>Última actualización:</strong> Julio 2025</p>
+
+                <h3>1. Información que Recopilamos</h3>
+                <p>En Kapital Financiero recopilamos únicamente la información necesaria para brindar nuestros servicios:</p>
+                <ul>
+                    <li>Datos financieros ingresados voluntariamente</li>
+                    <li>Información de configuración y preferencias</li>
+                    <li>Datos de uso para mejorar la experiencia</li>
+                </ul>
+
+                <h3>2. Uso de la Información</h3>
+                <p>Utilizamos su información para:</p>
+                <ul>
+                    <li>Generar análisis y reportes personalizados</li>
+                    <li>Enviar notificaciones y alertas</li>
+                    <li>Mejorar nuestros servicios</li>
+                    <li>Brindar soporte técnico</li>
+                </ul>
+
+                <div class="highlight-box info">
+                    <strong>🔒 Compromiso de Seguridad:</strong> Todos los datos se almacenan con encriptación avanzada y nunca se comparten con terceros sin su consentimiento explícito.
+                </div>
+
+                <h3>3. Protección de Datos</h3>
+                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción.</p>
+
+                <h3>4. Sus Derechos</h3>
+                <p>Usted tiene derecho a:</p>
+                <ul>
+                    <li>Acceder a sus datos personales</li>
+                    <li>Rectificar información incorrecta</li>
+                    <li>Solicitar la eliminación de sus datos</li>
+                    <li>Exportar sus datos</li>
+                </ul>
+
+                <h3>5. Contacto</h3>
+                <p>Para consultas sobre privacidad, contáctenos en: <strong>proyectokba@gmail.com</strong></p>
+            </div>
+        </section>
+
+        <!-- Términos de Servicio -->
+        <section id="terminos" class="section hidden">
+            <div class="content-section">
+                <h2>Términos de Servicio</h2>
+                <p><strong>Última actualización:</strong> Julio 2025</p>
+
+                <h3>1. Aceptación de los Términos</h3>
+                <p>Al utilizar Kapital Financiero, usted acepta cumplir con estos términos de servicio y todas las leyes aplicables.</p>
+
+                <h3>2. Descripción del Servicio</h3>
+                <p>Kapital Financiero es una plataforma de gestión financiera personal que proporciona:</p>
+                <ul>
+                    <li>Herramientas de análisis financiero</li>
+                    <li>Reportes automatizados</li>
+                    <li>Seguimiento de gastos e ingresos</li>
+                    <li>Proyecciones y recomendaciones</li>
+                </ul>
+
+                <div class="highlight-box warning">
+                    <strong>⚠️ Importante:</strong> Este servicio es únicamente para uso personal. No constituye asesoramiento financiero profesional.
+                </div>
+
+                <h3>3. Responsabilidades del Usuario</h3>
+                <p>El usuario se compromete a:</p>
+                <ul>
+                    <li>Proporcionar información precisa y actualizada</li>
+                    <li>Mantener la confidencialidad de sus credenciales</li>
+                    <li>Usar el servicio de manera responsable</li>
+                    <li>Cumplir con todas las leyes aplicables</li>
+                </ul>
+
+                <h3>4. Limitaciones de Responsabilidad</h3>
+                <p>Kapital Financiero no se hace responsable por:</p>
+                <ul>
+                    <li>Decisiones financieras basadas en nuestros análisis</li>
+                    <li>Pérdidas financieras resultantes del uso del servicio</li>
+                    <li>Interrupciones temporales del servicio</li>
+                </ul>
+
+                <h3>5. Modificaciones</h3>
+                <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones serán notificadas a través de la plataforma.</p>
+
+                <h3>6. Terminación</h3>
+                <p>Cualquier parte puede terminar este acuerdo en cualquier momento. Los datos del usuario serán eliminados según nuestra política de privacidad.</p>
+            </div>
+        </section>
+
+        <!-- Ayuda -->
+        <section id="ayuda" class="section hidden">
+            <div class="content-section">
+                <h2>Centro de Ayuda</h2>
+                <p>Encuentra respuestas a las preguntas más frecuentes y aprende a sacar el máximo provecho de Kapital Financiero.</p>
+
+                <h3>🚀 Primeros Pasos</h3>
+                <div class="highlight-box">
+                    <strong>Para comenzar:</strong>
+                    <ol>
+                        <li>Crea tu cuenta y configura tu perfil</li>
+                        <li>Ingresa tus datos financieros iniciales</li>
+                        <li>Configura categorías de gastos</li>
+                        <li>Establece tus metas financieras</li>
+                    </ol>
+                </div>
+
+                <h3>📊 Preguntas Frecuentes</h3>
+                
+                <h4>¿Cómo interpreto mis reportes?</h4>
+                <p>Los reportes incluyen métricas clave como balance neto, tendencias de gastos, y proyecciones. Cada sección tiene indicadores visuales que te ayudan a identificar áreas de mejora.</p>
+
+                <h4>¿Con qué frecuencia se actualizan los análisis?</h4>
+                <p>Los análisis se actualizan automáticamente cada vez que ingresas nuevos datos. Los reportes mensuales se generan automáticamente al final de cada mes.</p>
+
+                <h4>¿Puedo exportar mis datos?</h4>
+                <p>Sí, puedes exportar todos tus datos financieros en formato Excel o PDF desde la sección de configuración.</p>
+
+                <h4>¿Cómo configuro alertas personalizadas?</h4>
+                <p>Ve a Configuración > Alertas y establece límites para diferentes categorías de gastos. Recibirás notificaciones cuando te acerques a estos límites.</p>
+
+                <div class="highlight-box info">
+                    <strong>💡 Consejo:</strong> Para obtener mejores análisis, actualiza tus datos regularmente y revisa tus categorías mensualmente.
+                </div>
+
+                <h3>📞 Contacto y Soporte</h3>
+                <p>Si necesitas ayuda adicional, nuestro equipo de soporte está disponible:</p>
+                <ul>
+                    <li><strong>Email:</strong> proyectokba@gmail.com</li>
+                    <li><strong>WhatsApp:</strong> <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366;">¡Chatea con nosotros!</a></li>
+                    <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000;">Kapital Financiero</a></li>
+                    <li><strong>Instagram:</strong> <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F;">@kapitalfinanciero</a></li>
+                    <li><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
+                    <li><strong>Tiempo de respuesta:</strong> Máximo 24 horas</li>
+                </ul>
+
+                <div class="contact-form">
+                    <h3>Formulario de Contacto</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" onclick="showSection('inicio')">Inicio</a>
+                <a href="#" onclick="showSection('privacidad')">Privacidad</a>
+                <a href="#" onclick="showSection('terminos')">Términos</a>
+                <a href="#" onclick="showSection('ayuda')">Ayuda</a>
+                <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366;">WhatsApp</a>
+                <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000;">YouTube</a>
+                <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F;">Instagram</a>
+            </div>
+            <p>&copy; 2025 Kapital Financiero. Todos los derechos reservados.</p>
+            <p>Gestión financiera inteligente para tu tranquilidad.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.classList.add('hidden');
+            });
+            
+            // Mostrar la sección seleccionada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Manejar el envío del formulario
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Te responderemos pronto.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
