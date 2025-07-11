@@ -142,7 +142,7 @@
             margin-bottom: 2rem;
         }
 
-        .cta-button {
+        .cta-button, .print-button {
             background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%);
             color: white;
             padding: 1rem 2rem;
@@ -156,9 +156,16 @@
             display: inline-block;
         }
 
-        .cta-button:hover {
+        .cta-button:hover, .print-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(79, 111, 183, 0.3);
+        }
+
+        .print-button {
+            font-size: 0.9rem;
+            padding: 0.7rem 1.5rem;
+            background: #6c757d;
+            margin-top: 2rem;
         }
 
         /* Features */
@@ -217,18 +224,17 @@
             font-size: 1.3rem;
         }
 
-        .content-section p {
+        .content-section p, .content-section li {
             color: #718096;
             margin-bottom: 1rem;
         }
 
-        .content-section ul {
+        .content-section ul, .content-section ol {
             margin-left: 2rem;
             margin-bottom: 1rem;
         }
 
         .content-section li {
-            color: #718096;
             margin-bottom: 0.5rem;
         }
 
@@ -284,6 +290,14 @@
             outline: none;
             border-color: #4f6fb7;
         }
+        
+        /* Social Icons */
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
 
         /* Footer */
         .footer {
@@ -302,8 +316,10 @@
         .footer-links {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 2rem;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -311,10 +327,35 @@
             text-decoration: none;
             opacity: 0.8;
             transition: opacity 0.3s;
+            display: inline-flex;
+            align-items: center;
         }
 
         .footer-links a:hover {
             opacity: 1;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .printable-section, .printable-section * {
+                visibility: visible;
+            }
+            .printable-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 2rem;
+                margin: 0;
+                border: none;
+                box-shadow: none;
+            }
+            .print-button {
+                display: none;
+            }
         }
 
         /* Mobile Responsive */
@@ -335,6 +376,9 @@
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
+             .content-section {
+                padding: 1.5rem;
+            }
 
             .footer-links {
                 flex-direction: column;
@@ -344,7 +388,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <a href="#" class="logo" onclick="showSection('inicio')">
@@ -360,9 +403,7 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Inicio Section -->
         <section id="inicio" class="section active">
             <div class="hero">
                 <h1>Gestión Financiera Inteligente</h1>
@@ -405,140 +446,131 @@
             </div>
         </section>
 
-        <!-- Política de Privacidad -->
         <section id="privacidad" class="section hidden">
-            <div class="content-section">
+            <div class="content-section" id="privacidad-printable">
                 <h2>Política de Privacidad</h2>
-                <p><strong>Última actualización:</strong> Julio 2025</p>
+                <p><strong>Fecha de Entrada en Vigor:</strong> 11 de julio de 2025</p>
+                
+                <p><strong>¡Tu privacidad es nuestra prioridad!</strong> En "Kapital Financiero", entendemos que la información financiera es sensible. Por eso, hemos diseñado nuestro complemento para que sea seguro y respete tus datos, operando completamente dentro de tu propia cuenta de Google.</p>
 
-                <h3>1. Información que Recopilamos</h3>
-                <p>En Kapital Financiero recopilamos únicamente la información necesaria para brindar nuestros servicios:</p>
+                <h3>¿Qué información usamos?</h3>
                 <ul>
-                    <li>Datos financieros ingresados voluntariamente</li>
-                    <li>Información de configuración y preferencias</li>
-                    <li>Datos de uso para mejorar la experiencia</li>
+                    <li><strong>Tu Correo Electrónico y Nombre:</strong> Para enviarte tus propios informes, alertas de presupuesto y recordatorios de pago. Usamos tu nombre para que los correos se sientan más personales.</li>
+                    <li><strong>Tus Datos Financieros:</strong> El complemento lee los datos que tú mismo ingresas en tu Google Sheet y tu Google Form (ingresos, gastos, categorías) para realizar los cálculos y automatizaciones que le pides.</li>
+                    <li><strong>Permisos de tu Cuenta de Google:</strong> Solicitamos los permisos mínimos necesarios para funcionar. Por ejemplo, necesitamos permiso para modificar tu hoja de cálculo (para organizar los datos), para gestionar tu formulario (para sincronizar categorías) y para enviarte correos (tus informes y alertas).</li>
                 </ul>
 
-                <h3>2. Uso de la Información</h3>
-                <p>Utilizamos su información para:</p>
+                <h3>¿Dónde se guardan tus datos?</h3>
+                <p>100% en tu cuenta de Google. Tus datos financieros, tu configuración y toda tu información permanecen en tus documentos de Google Sheets y Google Forms. Nosotros <strong>NO</strong> tenemos servidores externos donde guardemos o copiemos tu información personal.</p>
+
+                <h3>¿Con quién compartimos tus datos?</h3>
+                <p>Con nadie. Simple y claro. No vendemos, alquilamos ni compartimos tu información personal o financiera con terceros.</p>
+
+                <h3>Tu Control sobre la Información</h3>
+                <p>Tienes control total. Puedes ver, editar y eliminar tus datos directamente en tu hoja de cálculo en cualquier momento. Si decides dejar de usar "Kapital Financiero", solo tienes que desinstalar el complemento desde Google Sheets™, y todos los permisos que nos diste serán revocados.</p>
+
+                <hr style="margin: 2rem 0;">
+
+                <h2>Política de Tratamiento de Datos Personales</h2>
+                <p><em>(Enfoque Colombia - Ley 1581 de 2012)</em></p>
+
+                <h3>1. IDENTIFICACIÓN DEL RESPONSABLE DEL TRATAMIENTO</h3>
                 <ul>
-                    <li>Generar análisis y reportes personalizados</li>
-                    <li>Enviar notificaciones y alertas</li>
-                    <li>Mejorar nuestros servicios</li>
-                    <li>Brindar soporte técnico</li>
+                    <li><strong>Nombre/Razón Social:</strong> Kapital Financiero</li>
+                    <li><strong>Domicilio:</strong> Medellín, Colombia</li>
+                    <li><strong>Correo Electrónico de Contacto:</strong> proyectokba@gmail.com</li>
                 </ul>
 
-                <div class="highlight-box info">
-                    <strong>🔒 Compromiso de Seguridad:</strong> Todos los datos se almacenan con encriptación avanzada y nunca se comparten con terceros sin su consentimiento explícito.
-                </div>
+                <h3>2. MARCO LEGAL</h3>
+                <p>Esta política se desarrolla en cumplimiento de la Ley 1581 de 2012, el Decreto 1377 de 2013, y demás normas concordantes, por las cuales se dictan disposiciones generales para la protección de datos personales en Colombia.</p>
+                
+                <h3>3. TRATAMIENTO Y FINALIDADES</h3>
+                <p>El Servicio opera como un procesador de datos dentro de la cuenta de Google del usuario (El Titular). <strong>En ningún momento los datos personales o financieros son transferidos, almacenados o procesados en servidores externos.</strong> Todo el tratamiento ocurre en los documentos y servicios de Google (Google Sheets™, Google Forms™, Gmail™) del propio Titular para las finalidades exclusivas del funcionamiento de la herramienta (envío de alertas, informes y recordatorios).</p>
 
-                <h3>3. Protección de Datos</h3>
-                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción.</p>
-
-                <h3>4. Sus Derechos</h3>
-                <p>Usted tiene derecho a:</p>
-                <ul>
-                    <li>Acceder a sus datos personales</li>
-                    <li>Rectificar información incorrecta</li>
-                    <li>Solicitar la eliminación de sus datos</li>
-                    <li>Exportar sus datos</li>
-                </ul>
-
-                <h3>5. Contacto</h3>
-                <p>Para consultas sobre privacidad, contáctenos en: <strong>proyectokba@gmail.com</strong></p>
+                <h3>4. DERECHOS DEL TITULAR</h3>
+                <p>Como Titular de los datos personales, tienes derecho a conocer, actualizar, rectificar, solicitar prueba de la autorización, ser informado del uso, presentar quejas, revocar la autorización y acceder gratuitamente a tus datos. Puedes ejercerlos editando directamente tus documentos de Google Sheets™ o desinstalando el complemento para revocar todos los permisos.</p>
+                
+                 <button class="print-button" onclick="printSection('privacidad-printable')">Descargar / Imprimir</button>
             </div>
         </section>
 
-        <!-- Términos de Servicio -->
         <section id="terminos" class="section hidden">
-            <div class="content-section">
-                <h2>Términos de Servicio</h2>
-                <p><strong>Última actualización:</strong> Julio 2025</p>
+            <div class="content-section" id="terminos-printable">
+                <h2>Términos y Condiciones del Servicio</h2>
+                <p><strong>Última actualización:</strong> 11 de julio de 2025</p>
 
-                <h3>1. Aceptación de los Términos</h3>
-                <p>Al utilizar Kapital Financiero, usted acepta cumplir con estos términos de servicio y todas las leyes aplicables.</p>
+                <h3>1. ACEPTACIÓN DE LOS TÉRMINOS</h3>
+                <p>Al instalar y utilizar el complemento "Kapital Financiero" (El Servicio), aceptas y te comprometes a cumplir los presentes Términos y Condiciones. Si no estás de acuerdo, no instales ni utilices el Servicio.</p>
 
-                <h3>2. Descripción del Servicio</h3>
-                <p>Kapital Financiero es una plataforma de gestión financiera personal que proporciona:</p>
-                <ul>
-                    <li>Herramientas de análisis financiero</li>
-                    <li>Reportes automatizados</li>
-                    <li>Seguimiento de gastos e ingresos</li>
-                    <li>Proyecciones y recomendaciones</li>
-                </ul>
+                <h3>2. LICENCIA DE USO</h3>
+                <p>Te concedemos una licencia limitada, personal, no exclusiva, intransferible y revocable para usar El Servicio para fines personales y no comerciales.</p>
 
+                <h3>3. PROPIEDAD INTELECTUAL</h3>
+                <p>El código fuente, diseño, logos, y la estructura del Servicio son propiedad intelectual de Kapital Financiero. Se prohíbe la copia, redistribución, venta o ingeniería inversa del Servicio.</p>
+                
                 <div class="highlight-box warning">
-                    <strong>⚠️ Importante:</strong> Este servicio es únicamente para uso personal. No constituye asesoramiento financiero profesional.
+                    <strong>⚠️ No es Asesoramiento Financiero:</strong> El Servicio es una herramienta de organización. Los cálculos, informes y alertas generados no constituyen asesoramiento financiero, fiscal o de inversión. Las decisiones financieras que tomes son de tu exclusiva responsabilidad.
                 </div>
 
-                <h3>3. Responsabilidades del Usuario</h3>
-                <p>El usuario se compromete a:</p>
-                <ul>
-                    <li>Proporcionar información precisa y actualizada</li>
-                    <li>Mantener la confidencialidad de sus credenciales</li>
-                    <li>Usar el servicio de manera responsable</li>
-                    <li>Cumplir con todas las leyes aplicables</li>
-                </ul>
-
-                <h3>4. Limitaciones de Responsabilidad</h3>
-                <p>Kapital Financiero no se hace responsable por:</p>
-                <ul>
-                    <li>Decisiones financieras basadas en nuestros análisis</li>
-                    <li>Pérdidas financieras resultantes del uso del servicio</li>
-                    <li>Interrupciones temporales del servicio</li>
-                </ul>
-
-                <h3>5. Modificaciones</h3>
-                <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones serán notificadas a través de la plataforma.</p>
-
-                <h3>6. Terminación</h3>
-                <p>Cualquier parte puede terminar este acuerdo en cualquier momento. Los datos del usuario serán eliminados según nuestra política de privacidad.</p>
+                <h3>4. LIMITACIONES DE RESPONSABILIDAD</h3>
+                <p>El Servicio se proporciona "tal cual". No nos hacemos responsables por la pérdida, corrupción o eliminación de datos, ya que estos residen en la cuenta de Google del usuario. La gestión de copias de seguridad es responsabilidad del usuario.</p>
+                
+                <h3>5. LEY APLICABLE</h3>
+                <p>Estos términos se regirán por las leyes de la República de Colombia. Cualquier disputa se someterá a la jurisdicción de los tribunales de la ciudad de Medellín.</p>
+                
+                <button class="print-button" onclick="printSection('terminos-printable')">Descargar / Imprimir</button>
             </div>
         </section>
 
-        <!-- Ayuda -->
         <section id="ayuda" class="section hidden">
             <div class="content-section">
                 <h2>Centro de Ayuda</h2>
-                <p>Encuentra respuestas a las preguntas más frecuentes y aprende a sacar el máximo provecho de Kapital Financiero.</p>
+                <p>¡Bienvenido a Kapital Financiero! Aquí resolvemos tus dudas.</p>
 
-                <h3>🚀 Primeros Pasos</h3>
-                <div class="highlight-box">
-                    <strong>Para comenzar:</strong>
+                <h3>🚀 Preguntas Frecuentes (FAQ)</h3>
+
+                <h4>¿Cómo empiezo? ¡Es mi primera vez!</h4>
+                 <div class="highlight-box info">
                     <ol>
-                        <li>Crea tu cuenta y configura tu perfil</li>
-                        <li>Ingresa tus datos financieros iniciales</li>
-                        <li>Configura categorías de gastos</li>
-                        <li>Establece tus metas financieras</li>
+                        <li>Abre el complemento desde el menú `Complementos > Kapital Financiero > 🚀 Iniciar`.</li>
+                        <li>En la barra lateral, haz clic en el botón **"1️⃣ Vincular Mi Formulario"**. Este paso es crucial, ya que creará un formulario personal para que registres tus movimientos y lo conectará todo.</li>
+                        <li>Una vez vinculado, encontrarás la URL de tu formulario en la hoja **"Configuración"**, celda F4. ¡Guárdala en tus favoritos!</li>
                     </ol>
                 </div>
-
-                <h3>📊 Preguntas Frecuentes</h3>
                 
-                <h4>¿Cómo interpreto mis reportes?</h4>
-                <p>Los reportes incluyen métricas clave como balance neto, tendencias de gastos, y proyecciones. Cada sección tiene indicadores visuales que te ayudan a identificar áreas de mejora.</p>
+                <h4>¿Cómo registro un nuevo gasto o ingreso?</h4>
+                <p>Usa el formulario de Google que se creó en el paso anterior. Es la forma más rápida y ordenada. Las respuestas se registrarán automáticamente en tu hoja "Data".</p>
 
-                <h4>¿Con qué frecuencia se actualizan los análisis?</h4>
-                <p>Los análisis se actualizan automáticamente cada vez que ingresas nuevos datos. Los reportes mensuales se generan automáticamente al final de cada mes.</p>
+                <h4>Mis categorías en el formulario no están actualizadas.</h4>
+                <p>¡Fácil! Si añadiste nuevas categorías en la hoja "Configuración", simplemente haz clic en el botón **"🔄 Sincronizar Opciones"** en la barra lateral. Esto actualizará las preguntas de tu formulario al instante.</p>
+                
+                <h4>¿Están seguros mis datos financieros?</h4>
+                <p>¡Totalmente! Tus datos viven y se procesan únicamente dentro de tu propia cuenta de Google. Nosotros no tenemos acceso ni guardamos copia de ellos.</p>
 
-                <h4>¿Puedo exportar mis datos?</h4>
-                <p>Sí, puedes exportar todos tus datos financieros en formato Excel o PDF desde la sección de configuración.</p>
-
-                <h4>¿Cómo configuro alertas personalizadas?</h4>
-                <p>Ve a Configuración > Alertas y establece límites para diferentes categorías de gastos. Recibirás notificaciones cuando te acerques a estos límites.</p>
-
-                <div class="highlight-box info">
-                    <strong>💡 Consejo:</strong> Para obtener mejores análisis, actualiza tus datos regularmente y revisa tus categorías mensualmente.
-                </div>
 
                 <h3>📞 Contacto y Soporte</h3>
                 <p>Si necesitas ayuda adicional, nuestro equipo de soporte está disponible:</p>
-                <ul>
-                    <li><strong>Email:</strong> proyectokba@gmail.com</li>
-                    <li><strong>WhatsApp:</strong> <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366;">¡Chatea con nosotros!</a></li>
-                    <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000;">Kapital Financiero</a></li>
-                    <li><strong>Instagram:</strong> <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F;">@kapitalfinanciero</a></li>
-                    <li><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 1rem;"><strong>Email:</strong> proyectokba@gmail.com</li>
+                    <li style="margin-bottom: 1rem;">
+                        <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366; text-decoration: none; display: inline-flex; align-items: center;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="social-icon">
+                            <strong>¡Chatea con nosotros en WhatsApp!</strong>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                         <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000; text-decoration: none; display: inline-flex; align-items: center;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo" class="social-icon">
+                            <strong>Kapital Financiero en YouTube</strong>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F; text-decoration: none; display: inline-flex; align-items: center;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="social-icon">
+                            <strong>@kapitalfinanciero en Instagram</strong>
+                        </a>
+                    </li>
+                    <li><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora Colombia)</li>
                     <li><strong>Tiempo de respuesta:</strong> Máximo 24 horas</li>
                 </ul>
 
@@ -568,7 +600,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -576,11 +607,17 @@
                 <a href="#" onclick="showSection('privacidad')">Privacidad</a>
                 <a href="#" onclick="showSection('terminos')">Términos</a>
                 <a href="#" onclick="showSection('ayuda')">Ayuda</a>
-                <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366;">WhatsApp</a>
-                <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000;">YouTube</a>
-                <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F;">Instagram</a>
+                <a href="https://wa.link/8t0nck" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon"> WhatsApp
+                </a>
+                <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" class="social-icon"> YouTube
+                </a>
+                <a href="https://www.instagram.com/kapitalfinanciero" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon"> Instagram
+                </a>
             </div>
-            <p>&copy; 2025 Kapital Financiero. Todos los derechos reservados.</p>
+            <p>© 2025 Kapital Financiero. Todos los derechos reservados.</p>
             <p>Gestión financiera inteligente para tu tranquilidad.</p>
         </div>
     </footer>
@@ -605,8 +642,25 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Manejar el envío del formulario
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Función para imprimir una sección
+        function printSection(sectionId) {
+            const sectionToPrint = document.getElementById(sectionId);
+            if(sectionToPrint) {
+                // Añadir una clase temporal para los estilos de impresión
+                document.body.classList.add('printing');
+                sectionToPrint.classList.add('printable-section');
+
+                window.print();
+
+                // Quitar las clases después de imprimir
+                document.body.classList.remove('printing');
+                sectionToPrint.classList.remove('printable-section');
+            }
+        }
+
+
+        // Manejar el envío del formulario de contacto
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Gracias por tu mensaje. Te responderemos pronto.');
             this.reset();
