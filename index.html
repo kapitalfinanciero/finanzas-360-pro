@@ -100,6 +100,62 @@
         .nav-menu a:hover {
             opacity: 0.8;
         }
+        
+        .hamburger-menu {
+            display: none; /* Oculto por defecto */
+            cursor: pointer;
+        }
+        
+        .hamburger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(45, 55, 72, 0.95);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+        
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav li {
+            margin: 2rem 0;
+        }
+
+        .mobile-nav a {
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+        }
+        
+        .close-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
 
         /* Main Content */
         .main-content {
@@ -159,6 +215,18 @@
         .cta-button:hover, .print-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(79, 111, 183, 0.3);
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            width: 750px;
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .print-button {
@@ -337,24 +405,28 @@
 
         /* Print-specific styles */
         @media print {
-            body * {
-                visibility: hidden;
+            body {
+                background-color: white;
             }
-            .printable-section, .printable-section * {
-                visibility: visible;
-            }
-            .printable-section {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                padding: 2rem;
-                margin: 0;
-                border: none;
-                box-shadow: none;
-            }
-            .print-button {
+            .header, .footer, .features, .print-button {
                 display: none;
+            }
+            .main-content {
+                margin-top: 0;
+            }
+            .section {
+                display: none !important; /* Ocultar todas las secciones */
+                padding: 0;
+            }
+            .section.printable {
+                display: block !important; /* Mostrar solo la sección imprimible */
+                box-shadow: none;
+                margin: 0;
+                padding: 1rem;
+            }
+            .content-section {
+                 box-shadow: none;
+                 padding: 1rem;
             }
         }
 
@@ -362,6 +434,14 @@
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+            }
+            .hamburger-menu {
+                display: block;
+                z-index: 1002;
+            }
+            .nav-container {
+                justify-content: space-between;
+                width: 100%;
             }
 
             .hero h1 {
@@ -400,14 +480,33 @@
                 <li><a href="#" onclick="showSection('terminos')">Términos</a></li>
                 <li><a href="#" onclick="showSection('ayuda')">Ayuda</a></li>
             </ul>
+            <div class="hamburger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
     </header>
+
+    <div class="mobile-nav">
+        <div class="close-icon">&times;</div>
+        <ul>
+            <li><a href="#" onclick="showSection('inicio', true)">Inicio</a></li>
+            <li><a href="#" onclick="showSection('privacidad', true)">Privacidad</a></li>
+            <li><a href="#" onclick="showSection('terminos', true)">Términos</a></li>
+            <li><a href="#" onclick="showSection('ayuda', true)">Ayuda</a></li>
+        </ul>
+    </div>
+
 
     <main class="main-content">
         <section id="inicio" class="section active">
             <div class="hero">
                 <h1>Finanzas 360 Pro</h1>
                 <p>Controla tus finanzas con el Add-On para Google Sheets™ que te ofrece análisis avanzados y reportes automáticos.</p>
+                
+                <img src="https://raw.githubusercontent.com/kapitalfinanciero/finanzas-360-pro/main/Ultima%20Versi%C3%B3n%20Hotmart%20-%20copia.png" alt="Dashboard profesional de Finanzas 360 Pro" class="hero-image">
+                
                 <a href="https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132" class="cta-button" target="_blank">Comenzar Ahora</a>
             </div>
 
@@ -431,7 +530,7 @@
         </section>
 
         <section id="privacidad" class="section hidden">
-            <div class="content-section" id="privacidad-printable">
+            <div class="content-section">
                 <h2>Política de Privacidad</h2>
                 <p><strong>Fecha de Entrada en Vigor:</strong> 11 de julio de 2025</p>
                 
@@ -473,38 +572,35 @@
                 <h3>4. DERECHOS DEL TITULAR</h3>
                 <p>Como Titular de los datos personales, tienes derecho a conocer, actualizar, rectificar, solicitar prueba de la autorización, ser informado del uso, presentar quejas, revocar la autorización y acceder gratuitamente a tus datos. Puedes ejercerlos editando directamente tus documentos de Google Sheets™ o desinstalando el Add-On para revocar todos los permisos.</p>
                 
-                 <button class="print-button" onclick="printSection('privacidad-printable')">Descargar / Imprimir</button>
+                 <button class="print-button" onclick="printSection('privacidad')">Descargar / Imprimir</button>
             </div>
         </section>
 
         <section id="terminos" class="section hidden">
-            <div class="content-section" id="terminos-printable">
+            <div class="content-section">
                 <h2>Términos y Condiciones del Servicio</h2>
                 <p><strong>Última actualización:</strong> 11 de julio de 2025</p>
 
                 <h3>1. ACEPTACIÓN DE LOS TÉRMINOS</h3>
-                <p>Al instalar y utilizar el <strong>Add-On "Finanzas 360 Pro"</strong> (en adelante, "El Servicio"), aceptas y te comprometes a cumplir los presentes Términos y Condiciones. Si no estás de acuerdo, no instales ni utilices El Servicio.</p>
+                <p>Al instalar y utilizar el <strong>Add-On "Finanzas 360 Pro"</strong> (en adelante, "El Servicio"), aceptas y te comprometes a cumplir los presentes Términos y Condiciones. Si no estás de acuerdo, no instales ni utilices el Servicio.</p>
 
-                <h3>2. DESCRIPCIÓN DEL SERVICIO</h3>
-                <p>"Finanzas 360 Pro" es una herramienta de software que se instala en Google Sheets™ para ayudar a los usuarios a automatizar el seguimiento, la categorización y el análisis de sus finanzas personales a través de una plantilla predefinida.</p>
-
-                <h3>3. LICENCIA DE USO</h3>
+                <h3>2. LICENCIA DE USO</h3>
                 <p>Te concedemos una licencia limitada, personal, no exclusiva, intransferible y revocable para usar El Servicio para fines personales y no comerciales.</p>
 
-                <h3>4. PROPIEDAD INTELECTUAL</h3>
+                <h3>3. PROPIEDAD INTELECTUAL</h3>
                 <p>El código fuente, diseño, logos, y la estructura del Servicio son propiedad intelectual de Kapital Financiero y están protegidos por las leyes de derechos de autor. Se prohíbe la copia, redistribución, venta o ingeniería inversa del Servicio.</p>
                 
                 <div class="highlight-box warning">
                     <strong>⚠️ No es Asesoramiento Financiero:</strong> El Servicio es una herramienta de organización. Los cálculos, informes y alertas generados no constituyen asesoramiento financiero, fiscal o de inversión. Las decisiones financieras que tomes son de tu exclusiva responsabilidad.
                 </div>
 
-                <h3>5. LIMITACIONES DE RESPONSABILIDAD</h3>
+                <h3>4. LIMITACIONES DE RESPONSABILIDAD</h3>
                 <p>El Servicio se proporciona "tal cual". No garantizamos que sea ininterrumpido o libre de errores. No nos hacemos responsables por la pérdida, corrupción o eliminación de datos, ya que estos residen en la cuenta de Google del usuario. La gestión de copias de seguridad es responsabilidad del usuario.</p>
                 
-                <h3>6. LEY APLICABLE Y JURISDICCIÓN</h3>
+                <h3>5. LEY APLICABLE Y JURISDICCIÓN</h3>
                 <p>Estos términos se regirán e interpretarán de acuerdo con las leyes de la República de Colombia. Cualquier disputa se someterá a la jurisdicción de los tribunales de la ciudad de Medellín.</p>
                 
-                <button class="print-button" onclick="printSection('terminos-printable')">Descargar / Imprimir</button>
+                <button class="print-button" onclick="printSection('terminos')">Descargar / Imprimir</button>
             </div>
         </section>
 
@@ -612,10 +708,24 @@
     </footer>
 
     <script>
-        function showSection(sectionId) {
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const closeNav = document.querySelector('.close-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+        function toggleNav() {
+            mobileNav.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleNav);
+        closeNav.addEventListener('click', toggleNav);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleNav);
+        });
+
+        function showSection(sectionId, fromMobile = false) {
             // Ocultar todas las secciones
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
+            document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
                 section.classList.add('hidden');
             });
@@ -627,50 +737,32 @@
                 targetSection.classList.add('active');
             }
             
+            // Cerrar el menú móvil si se navega desde él
+            if (fromMobile) {
+                mobileNav.classList.remove('active');
+            }
+
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Función para imprimir una sección
+        // Función para imprimir una sección (Solución Mejorada)
         function printSection(sectionId) {
             const sectionToPrint = document.getElementById(sectionId);
             if(sectionToPrint) {
-                // Añadir una clase temporal para los estilos de impresión
-                const originalContent = document.body.innerHTML;
-                document.body.innerHTML = sectionToPrint.innerHTML;
+                // Añade una clase al body para aplicar estilos de impresión específicos
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('printable'));
+                sectionToPrint.classList.add('printable');
                 window.print();
-                document.body.innerHTML = originalContent;
-                // Recargar los listeners porque el DOM se reescribió
-                addEventListeners();
-                // Volver a mostrar la sección correcta
-                showSection(sectionId);
             }
         }
 
-        function addEventListeners() {
-            // Manejar el envío del formulario de contacto
-            const contactForm = document.querySelector('.contact-form form');
-            if(contactForm) {
-                 contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Gracias por tu mensaje. Te responderemos pronto.');
-                    this.reset();
-                });
-            }
-           
-            // Re-vincular los eventos de navegación
-            document.querySelectorAll('a[onclick^="showSection"]').forEach(link => {
-                const sectionId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showSection(sectionId);
-                });
-            });
-        }
-        
-        // Cargar los listeners iniciales
-        document.addEventListener('DOMContentLoaded', addEventListeners);
-
+        // Manejar el envío del formulario de contacto
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Te responderemos pronto.');
+            this.reset();
+        });
     </script>
 </body>
 </html>
