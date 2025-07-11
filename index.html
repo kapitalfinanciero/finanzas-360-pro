@@ -190,6 +190,7 @@
         .mobile-nav li:nth-child(2) { animation-delay: 0.2s; }
         .mobile-nav li:nth-child(3) { animation-delay: 0.3s; }
         .mobile-nav li:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-nav li:nth-child(5) { animation-delay: 0.5s; }
 
         @keyframes slideInUp {
             to {
@@ -495,6 +496,124 @@
             border-color: #90cdf4;
             border-left-color: #4299e1;
         }
+        
+        /* === NUEVOS ESTILOS PARA LA SECCIÓN "SOBRE NOSOTROS" === */
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .about-subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .profile-image-container {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-info h3 {
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .profile-info .title {
+            font-size: 1.2rem;
+            color: #4f6fb7;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .profile-info p {
+            text-align: justify;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #4f6fb7;
+        }
+        
+        .achievement-card h4 {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievement-card li {
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .achievement-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4f6fb7;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 40px;
+            background: linear-gradient(135deg, #4f6fb7, #3b5998);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
 
         /* Contact Form Styles */
         .contact-form {
@@ -594,7 +713,7 @@
             transform: translateY(-2px);
         }
 
-        /* === REGLAS DE IMPRESIÓN CORREGIDAS === */
+        /* Print-specific styles */
         @media print {
             body * {
                 visibility: hidden;
@@ -612,7 +731,8 @@
                 border: none;
                 box-shadow: none;
             }
-             .printable .content-section {
+             .printable .content-section, .printable .about-header, .printable .profile-grid, .printable .achievements-grid, .printable .cta-section {
+                 visibility: visible;
                  box-shadow: none;
                  padding: 0;
                  margin: 0;
@@ -647,11 +767,11 @@
                 width: 100%;
                 max-width: 500px;
             }
-            .features {
+            .features, .achievements-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            .feature-card {
+            .feature-card, .achievement-card {
                 padding: 2rem;
             }
             .section {
@@ -673,6 +793,10 @@
                 padding: 1rem 2rem;
                 font-size: 1rem;
             }
+            .profile-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -682,7 +806,7 @@
             .hero p {
                 font-size: 1rem;
             }
-            .content-section, .contact-form, .feature-card {
+            .content-section, .contact-form, .feature-card, .achievement-card {
                 padding: 1.5rem;
             }
         }
@@ -697,6 +821,7 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('nosotros')">Sobre Nosotros</a></li>
                 <li><a href="#" onclick="showSection('privacidad')">Privacidad</a></li>
                 <li><a href="#" onclick="showSection('terminos')">Términos y Condiciones</a></li>
                 <li><a href="#" onclick="showSection('ayuda')">Ayuda</a></li>
@@ -713,6 +838,7 @@
         <div class="close-icon">×</div>
         <ul>
             <li><a href="#" onclick="showSection('inicio', true)">Inicio</a></li>
+            <li><a href="#" onclick="showSection('nosotros', true)">Sobre Nosotros</a></li>
             <li><a href="#" onclick="showSection('privacidad', true)">Privacidad</a></li>
             <li><a href="#" onclick="showSection('terminos', true)">Términos y Condiciones</a></li>
             <li><a href="#" onclick="showSection('ayuda', true)">Ayuda</a></li>
@@ -745,6 +871,56 @@
                     <div class="feature-icon">💡</div>
                     <h3>Alertas y Recordatorios</h3>
                     <p>Recibe notificaciones por correo sobre tus presupuestos y pagos pendientes para nunca perder el control.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="section hidden printable">
+            <div class="content-section">
+                <div class="about-header">
+                    <h2 class="about-title">Sobre Nosotros</h2>
+                    <p class="about-subtitle">Transformando vidas a través de las finanzas inteligentes</p>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="profile-image-container">
+                        <img src="https://raw.githubusercontent.com/kapitalfinanciero/finanzas-360-pro/main/IMG_6127.JPEG" alt="Yeison Kbadia" class="profile-image">
+                    </div>
+                    <div class="profile-info">
+                        <h3>Yeison Kbadia</h3>
+                        <p class="title">Fundador de Kapital Financiero</p>
+                        <p>Yeison Kbadia es Administrador de Empresas con MBA en Data Analytics y más de 7 años de experiencia transformando vidas a través de las finanzas inteligentes. Su enfoque no se limita al manejo de números, sino que se centra en empoderar a las personas para construir un futuro financiero sólido y próspero.</p>
+                    </div>
+                </div>
+
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h4>Su Trayectoria Profesional</h4>
+                        <p>Durante su amplia experiencia en el sector financiero, Yeison ha desarrollado estrategias innovadoras que le han permitido:</p>
+                        <ul>
+                            <li>Ejecutar inversiones de alto valor que han multiplicado patrimonios año tras año.</li>
+                            <li>Implementar sistemas de control financiero que garantizan la optimización de cada recurso.</li>
+                            <li>Generar múltiples fuentes de ingresos pasivos que proporcionan estabilidad económica a largo plazo.</li>
+                            <li>Asesorar a cientos de personas en su camino hacia la estabilidad financiera.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>Nuestra Misión con Kapital Financiero</h4>
+                        <p>Yeison cree firmemente que todos merecen vivir sin estrés financiero. A través de Kapital Financiero, nuestro objetivo es proporcionar las herramientas y conocimientos para que cada persona pueda:</p>
+                        <ul>
+                            <li>Dormir tranquilo sabiendo que sus finanzas están bajo control.</li>
+                            <li>Tomar decisiones estratégicas sin que el dinero sea una limitante.</li>
+                            <li>Construir el estilo de vida que realmente desea.</li>
+                            <li>Establecer un legado financiero sólido para su familia.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>¿Listo para Transformar tu Futuro Financiero?</h3>
+                    <p>Con nuestra combinación única de experiencia empresarial y análisis de datos, hemos creado metodologías probadas que transforman la realidad financiera de nuestros clientes.</p>
+                    <a href="https://pay.hotmart.com/P97020554U?off=j470i0f8&hotfeature=51&_hi=eyJjaWQiOiIxNzMzODU3MTM0MzQ5MjY1OTcyNjk0NDIzNjk2NjQwIiwiYmlkIjoiMTczMzg1NzEzNDM0OTI2NTk3MjY5NDQyMzY5NjY0MCIsInNpZCI6ImJkZGNmMGJlN2RhYzQxZWViYTk1MGZhNjIwZmE0OWUzIn0=.1752251094791&bid=1752251097132" class="cta-button" target="_blank">Comienza Tu Transformación</a>
                 </div>
             </div>
         </section>
@@ -881,6 +1057,7 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#" onclick="showSection('inicio')">Inicio</a>
+                <a href="#" onclick="showSection('nosotros')">Sobre Nosotros</a>
                 <a href="#" onclick="showSection('privacidad')">Privacidad</a>
                 <a href="#" onclick="showSection('terminos')">Términos y Condiciones</a>
                 <a href="#" onclick="showSection('ayuda')">Ayuda</a>
@@ -909,11 +1086,11 @@
 
             hamburger.addEventListener('click', toggleNav);
             closeNav.addEventListener('click', toggleNav);
-
+            
             document.querySelectorAll('.mobile-nav a').forEach(link => {
-                const sectionId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
+                    const sectionId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
                     showSection(sectionId, true);
                 });
             });
@@ -939,11 +1116,9 @@
         }
 
         function printSection(sectionId) {
-            // Remueve la clase de otras secciones si existiera
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('printable'));
-            
             const sectionToPrint = document.getElementById(sectionId);
             if (sectionToPrint) {
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('printable'));
                 sectionToPrint.classList.add('printable');
                 window.print();
             }
@@ -955,11 +1130,9 @@
             this.reset();
         });
 
-        // Limpiar la clase 'printable' después de imprimir o cancelar
         window.onafterprint = () => {
              document.querySelectorAll('.section.printable').forEach(s => s.classList.remove('printable'));
         };
-
     </script>
 </body>
 </html>
