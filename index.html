@@ -28,7 +28,6 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -595,23 +594,32 @@
             transform: translateY(-2px);
         }
 
-        /* Print-specific styles */
+        /* === REGLAS DE IMPRESIÓN CORREGIDAS === */
         @media print {
-            body > * {
-                display: none;
+            body * {
+                visibility: hidden;
             }
-            body {
-                background-color: white;
+            .printable, .printable * {
+                visibility: visible;
             }
-            .section.printable {
-                display: block !important;
+            .printable {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 20px;
+                padding: 0;
+                border: none;
                 box-shadow: none;
-                margin: 0;
-                padding: 1rem;
             }
-            .content-section {
+             .printable .content-section {
                  box-shadow: none;
-                 padding: 1rem;
+                 padding: 0;
+                 margin: 0;
+                 border: none;
+            }
+             .printable .content-section::before {
+                display: none;
             }
         }
 
@@ -901,6 +909,15 @@
 
             hamburger.addEventListener('click', toggleNav);
             closeNav.addEventListener('click', toggleNav);
+            
+            // Re-vincular eventos para los enlaces del menú móvil
+             document.querySelectorAll('.mobile-nav a').forEach(link => {
+                const sectionId = link.getAttribute('onclick').match(/'([^']+)'/)[1];
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showSection(sectionId, true);
+                });
+            });
         });
 
         function showSection(sectionId, fromMobile = false) {
@@ -924,12 +941,16 @@
 
         function printSection(sectionId) {
             const sectionToPrint = document.getElementById(sectionId);
-            if(sectionToPrint) {
-                document.body.classList.add('printing');
+            if (sectionToPrint) {
+                // Prepara la página para la impresión añadiendo la clase 'printable' a la sección deseada.
+                // El CSS @media print se encargará del resto.
                 sectionToPrint.classList.add('printable');
                 window.print();
-                document.body.classList.remove('printing');
-                sectionToPrint.classList.remove('printable');
+                // Opcional: remover la clase después de imprimir.
+                // Se puede hacer con un pequeño delay o en el evento onafterprint.
+                setTimeout(() => {
+                    sectionToPrint.classList.remove('printable');
+                }, 1000);
             }
         }
 
