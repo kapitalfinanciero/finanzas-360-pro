@@ -1071,7 +1071,7 @@
                 </ul>
                 <div class="contact-form">
                     <h3>Formulario de Contacto</h3>
-                    <form>
+                    <form action="https://formspree.io/f/mgvygdbr" method="POST">
                         <div class="form-group">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" required>
@@ -1172,12 +1172,6 @@
                 window.print();
             }
         }
-
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Gracias por tu mensaje. Te responderemos pronto.');
-            this.reset();
-        });
 
         window.onafterprint = () => {
              document.querySelectorAll('.section.printable').forEach(s => s.classList.remove('printable'));
