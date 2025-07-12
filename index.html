@@ -667,12 +667,13 @@
             box-shadow: 0 0 0 3px rgba(79, 111, 183, 0.1);
         }
 
-        /* NEW STYLES FOR HELP SECTION */
-        .help-section-container {
-            padding: 25px;
+        /* STYLES FOR HELP SECTION (FROM GUIDE TEMPLATE) */
+        .help-guide-wrapper {
             background: #f8f9fa;
             border-radius: 10px;
             border-left: 4px solid #4f6fb7;
+            padding: 25px;
+            margin-top: 2rem;
         }
         .help-step {
             background: white;
@@ -717,6 +718,17 @@
             font-size: 38px;
             margin-bottom: 10px;
             color: #4f6fb7;
+        }
+        .help-menu-demo {
+            background: #2d3748;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1.4;
         }
 
         /* Footer Styles */
@@ -900,7 +912,7 @@
             .hero p {
                 font-size: 1rem;
             }
-            .content-section, .contact-form, .feature-card, .achievement-card, .help-section-container {
+            .content-section, .contact-form, .feature-card, .achievement-card, .help-guide-wrapper {
                 padding: 1.5rem;
             }
         }
@@ -1074,122 +1086,221 @@
                 <button class="print-button" onclick="printSection('terminos')">Descargar / Imprimir</button>
             </div>
         </section>
-
+        
         <section id="ayuda" class="section hidden printable">
             <div class="content-section">
-                <h2>Centro de Ayuda y Manual de Usuario</h2>
-                <p>¡Bienvenido! Esta guía te llevará paso a paso para instalar, configurar y dominar el Add-On. Al finalizar, tendrás un sistema financiero personal totalmente automatizado.</p>
-
-                <div class="highlight-box info" style="margin-top: 2rem;">
-                    <strong>Tiempo estimado de configuración:</strong> 10-15 minutos.
-                </div>
+                <h2>Manual de Instalación</h2>
+                <p>Plantilla de Finanzas Personales</p>
                 
-                <div class="help-section-container">
+                <div class="help-guide-wrapper">
+                    <h3>Introducción</h3>
+                    <p>Bienvenido a tu nueva herramienta de gestión financiera. Este manual te guiará paso a paso para instalar y configurar tu plantilla de finanzas personales en Google Sheets.</p>
+                    <p>Al finalizar esta guía, tendrás un sistema completamente automatizado para:</p>
+                    <ul>
+                        <li>Registrar tus ingresos y gastos</li>
+                        <li>Controlar tu presupuesto mensual</li>
+                        <li>Recibir alertas automáticas</li>
+                        <li>Generar informes mensuales</li>
+                    </ul>
+                    <div class="highlight-box info">
+                        <strong>Tiempo estimado:</strong> 15-20 minutos para completar toda la configuración.
+                    </div>
+                </div>
+
+                <div class="help-guide-wrapper">
                     <h3>Paso 1: Crear tu Copia Personal</h3>
                     <div class="help-step">
                         <div class="help-step-number">1</div>
+                        <h4>Acceder a la Plantilla Original</h4>
+                        <p>Haz clic en el enlace que recibiste para acceder a la plantilla maestra en Google Sheets.</p>
+                        <div class="help-mockup">
+                            <div class="help-mockup-icon">📊</div>
+                            <p>Plantilla de Finanzas Personales<br><small>Vista de solo lectura</small></p>
+                        </div>
+                    </div>
+                    <div class="help-step">
+                        <div class="help-step-number">2</div>
                         <h4>Hacer una Copia</h4>
-                        <p>Para empezar, necesitas tu propia versión de la plantilla. Ve al menú <strong>Archivo → Crear una copia</strong>, dale un nombre personal y guárdala en tu Google Drive.</p>
+                        <p>Una vez que se abra la plantilla, sigue estos pasos:</p>
+                        <ol>
+                            <li>Haz clic en el menú <strong>Archivo</strong> en la parte superior</li>
+                            <li>Selecciona <strong>"Crear una copia"</strong></li>
+                            <li>Se abrirá una ventana de diálogo</li>
+                        </ol>
                         <div class="help-mockup">
                             <div class="help-mockup-icon">📋</div>
                             <p>Archivo → Crear una copia</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="help-section-container">
-                    <h3>Paso 2: Autorizar Permisos y Vincular Formulario</h3>
-                    <div class="help-step">
-                        <div class="help-step-number">2</div>
-                        <h4>Iniciar y Autorizar</h4>
-                        <p>Este es el paso más importante para activar la automatización.</p>
-                        <ol>
-                            <li>En tu nueva hoja, ve a <strong>Extensiones → Finanzas 360 Pro → 🚀 Iniciar</strong>.</li>
-                            <li>En la barra lateral, haz clic en <strong>"1️⃣ Vincular Mi Formulario"</strong>.</li>
-                            <li>Acepta los permisos que solicita Google.</li>
-                        </ol>
-                    </div>
-
                     <div class="help-step">
                         <div class="help-step-number">3</div>
-                        <h4>Navegar la Advertencia de Seguridad</h4>
-                        <p>Google te mostrará una advertencia. Es un paso normal y seguro.</p>
-                        <div class="highlight-box warning">
-                            <p>En la ventana de advertencia, haz clic en <strong>"Configuración avanzada"</strong> y luego en <strong>"Ir a Automatización Finanzas (no seguro)"</strong>.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="help-step">
-                        <div class="help-step-number">4</div>
-                        <h4>Conceder Permisos Finales</h4>
-                        <p>Para finalizar la autorización:</p>
+                        <h4>Personalizar el Nombre</h4>
+                        <p>En la ventana de diálogo:</p>
                         <ol>
-                            <li>En la pantalla de permisos, marca el <strong>Check 'Seleccionar todos'</strong>.</li>
-                            <li>Mueve la barra de desplazamiento hasta abajo.</li>
-                            <li>Haz clic en <strong>"Permitir"</strong>.</li>
+                            <li>Cambia el nombre por algo personal, por ejemplo: <strong>"Mis Finanzas 2025"</strong></li>
+                            <li>Asegúrate de que esté seleccionada tu carpeta de Google Drive</li>
+                            <li>Haz clic en <strong>"Crear una copia"</strong></li>
                         </ol>
-                        <div class="highlight-box" style="background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%); border-left-color: #38b2ac;">
-                           <strong>¡Felicidades!</strong> El Add-On está conectado. La URL de tu formulario personal aparecerá en la hoja <strong>"Configuración"</strong> (celda F4). ¡Guárdala en favoritos!
+                        <div class="highlight-box">
+                            <strong>¡Perfecto!</strong> Ahora tienes tu propia copia de la plantilla que puedes modificar libremente.
                         </div>
                     </div>
                 </div>
-                
-                <div class="help-section-container">
-                    <h3>Paso 3: Personalización y Uso</h3>
-                     <div class="help-step">
+
+                <div class="help-guide-wrapper">
+                    <h3>Paso 2: Configuración Inicial</h3>
+                    <div class="help-step">
+                        <div class="help-step-number">4</div>
+                        <h4>Autorizar Permisos del Script</h4>
+                        <p>La plantilla incluye automatizaciones que requieren permisos especiales:</p>
+                        <ol>
+                            <li>Busca el menú <strong>⚙️ Automatización</strong> en la barra superior</li>
+                            <li>Haz clic en cualquier opción (por ejemplo: "Vincular Mi Formulario")</li>
+                            <li>Aparecerá una ventana emergente, haz clic en <strong>"Continuar"</strong></li>
+                            <li>Selecciona tu cuenta de Google</li>
+                            <li>Verás una advertencia de seguridad, haz clic en <strong>"Configuración avanzada"</strong></li>
+                            <li>Haz clic en <strong>"Ir a Automatización Finanzas (no seguro)"</strong></li>
+                            <li>Finalmente, marca el Check 'Seleccionar todos', desliza hasta el final y da clic en <strong>'Permitir'</strong>.</li>
+                        </ol>
+                        <div class="help-menu-demo">⚙️ Automatización
+ ├── 1️⃣ Vincular Mi Formulario
+ ├── 🔄 Sincronizar Opciones
+ ├── ✅ Activar Resumen Mensual
+ └── 📊 Ver Estado Actual</div>
+                        <div class="highlight-box warning">
+                            <strong>Importante:</strong> Los permisos son necesarios para que las automatizaciones funcionen. Google muestra esta advertencia porque es un script personalizado.
+                        </div>
+                    </div>
+                    <div class="help-step">
                         <div class="help-step-number">5</div>
-                        <h4>Configura tus Datos</h4>
-                         <p>Ve a la hoja <strong>"Configuración"</strong> para añadir tus categorías de gastos, ingresos y métodos de pago. ¡No olvides sincronizar los cambios con el botón <strong>"🔄 Sincronizar Opciones"</strong> en la barra lateral!</p>
+                        <h4>Configurar tus Datos Principales</h4>
+                        <p>Ve a la hoja <strong>"Configuración"</strong> (pestaña en la parte inferior):</p>
+                        <ol>
+                            <li><strong>Celda D4:</strong> Ingresa tu correo electrónico (donde recibirás las alertas)</li>
+                            <li><strong>Celda H4:</strong> Ingresa tu nombre (para personalizar los correos)</li>
+                        </ol>
+                        <div class="help-mockup">
+                            <div class="help-mockup-icon">⚙️</div>
+                            <p>Hoja: Configuración<br><small>D4: tu@email.com | H4: Tu Nombre</small></p>
+                        </div>
+                    </div>
+                    <div class="help-step">
+                        <div class="help-step-number">6</div>
+                        <h4>Crear tu Formulario Personal</h4>
+                        <p>Este es el paso más importante. Creará un formulario privado para registrar tus movimientos:</p>
+                        <ol>
+                            <li>Ve al menú <strong>⚙️ Automatización</strong></li>
+                            <li>Selecciona <strong>"1️⃣ Vincular Mi Formulario"</strong></li>
+                            <li>El script trabajará unos segundos y creará tu formulario.</li>
+                            <li>La URL de tu formulario aparecerá automáticamente en la celda F4.</li>
+                        </ol>
+                        <div class="highlight-box">
+                            <strong>Consejo:</strong> Copia la URL del formulario (celda F4) y guárdala como marcador en tu navegador o como acceso directo en tu celular.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-guide-wrapper">
+                    <h3>Paso 3: Personalización</h3>
+                    <div class="help-step">
+                        <div class="help-step-number">7</div>
+                        <h4>Definir tus Categorías</h4>
+                        <p>En la hoja <strong>"Configuración"</strong>, personaliza las listas según tu realidad:</p>
+                        <ul>
+                            <li><strong>Categoría de Ingreso:</strong> Salario, Freelance, Inversiones, etc.</li>
+                            <li><strong>Categoría de Gasto:</strong> Alimentación, Transporte, Entretenimiento, etc.</li>
+                            <li><strong>Métodos de Pago:</strong> Efectivo, Tarjeta débito, Tarjeta crédito, etc.</li>
+                        </ul>
                         <div class="help-mockup">
                             <div class="help-mockup-icon">📝</div>
                             <p>Personaliza las categorías según tu estilo de vida</p>
                         </div>
                     </div>
+                     <div class="help-step">
+                        <div class="help-step-number">8</div>
+                        <h4>Sincronizar el Formulario</h4>
+                        <p>Después de modificar las categorías:</p>
+                        <ol>
+                            <li>Ve al menú <strong>⚙️ Automatización</strong></li>
+                            <li>Selecciona <strong>"🔄 Sincronizar Opciones"</strong></li>
+                            <li>El script actualizará tu formulario con las nuevas categorías.</li>
+                        </ol>
+                    </div>
+                     <div class="help-step">
+                        <div class="help-step-number">9</div>
+                        <h4>Establecer Presupuestos</h4>
+                        <p>Ve a la hoja <strong>"Presupuesto"</strong>:</p>
+                        <ol>
+                            <li>Asigna un monto mensual para cada categoría de gasto.</li>
+                            <li>Estos montos servirán para las alertas automáticas.</li>
+                        </ol>
+                        <div class="help-mockup">
+                            <div class="help-mockup-icon">💰</div>
+                            <p>Hoja: Presupuesto<br><small>Define límites mensuales por categoría</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-guide-wrapper">
+                    <h3>Paso 4: Activar Automatizaciones</h3>
                     <div class="help-step">
-                        <div class="help-step-number">6</div>
-                        <h4>Registra tus Movimientos</h4>
-                        <p>Usa el enlace a tu <strong>formulario personal</strong> para registrar cada gasto e ingreso de forma rápida y sencilla desde cualquier dispositivo.</p>
-                   </div>
+                        <div class="help-step-number">10</div>
+                        <h4>Resumen Mensual Automático</h4>
+                        <p>Recibe un informe detallado cada mes:</p>
+                        <ol>
+                            <li>Ve al menú <strong>⚙️ Automatización</strong></li>
+                            <li>Selecciona <strong>"✅ Activar Resumen Mensual"</strong></li>
+                            <li>Recibirás un email con PDF el día 1 de cada mes a las 8:00 AM.</li>
+                        </ol>
+                    </div>
+                    <div class="help-step">
+                        <div class="help-step-number">11</div>
+                        <h4>Recordatorios de Pago</h4>
+                        <p>Nunca olvides una factura:</p>
+                        <ol>
+                            <li>En la hoja <strong>"Presupuesto"</strong>, llena la sección "Recordatorios de Pago".</li>
+                            <li>Ve al menú <strong>⚙️ Automatización</strong></li>
+                            <li>Selecciona <strong>"⚙️ Activar Recordatorios de Pago Diarios"</strong>.</li>
+                        </ol>
+                        <div class="highlight-box">
+                            <strong>¡Listo!</strong> Recibirás emails diarios a las 8:00 AM con recordatorios de pagos próximos a vencer.
+                        </div>
+                    </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 3rem;">
-                    <button class="print-button" onclick="printSection('ayuda')" style="background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%);">
+                <div class="help-guide-wrapper">
+                    <h3>Uso Diario</h3>
+                    <div class="help-step">
+                        <div class="help-step-number">12</div>
+                        <h4>Registrar Movimientos</h4>
+                        <p>Usa el formulario que creaste para registrar cada movimiento. Los datos aparecerán automáticamente en la hoja "Data".</p>
+                    </div>
+                    <div class="help-step">
+                        <div class="help-step-number">13</div>
+                        <h4>Consultar el Dashboard</h4>
+                        <p>La hoja <strong>"Dashboard"</strong> es tu centro de control, con gráficos y resúmenes actualizados en tiempo real.</p>
+                    </div>
+                    <div class="help-step">
+                        <div class="help-step-number">14</div>
+                        <h4>Generar Informe Instantáneo</h4>
+                        <p>¿Quieres ver cómo vas ahora mismo? Ve a <strong>⚙️ Automatización → 📊 Ver Estado Actual</strong> para recibir un PDF al instante.</p>
+                    </div>
+                </div>
+
+                <div class="help-guide-wrapper">
+                    <h3>Consejos Adicionales</h3>
+                    <div class="highlight-box"><strong>Registro Constante:</strong> La clave del éxito es registrar todos los movimientos, sin excepción.</div>
+                    <div class="highlight-box"><strong>Revisión Semanal:</strong> Dedica 10 minutos cada semana para revisar tu Dashboard.</div>
+                    <div class="highlight-box"><strong>Backup Regular:</strong> Haz una copia de seguridad de tu hoja cada mes descargándola como archivo Excel.</div>
+                    <div class="highlight-box warning"><strong>Problemas Comunes:</strong> Si algo falla, verifica que los permisos estén bien y tu email esté correcto en "Configuración".</div>
+                </div>
+
+                 <div style="text-align: center; margin-top: 3rem;">
+                     <p>Desarrollado por <strong>Kapital Financiero</strong></p>
+                     <p>Para soporte técnico, visita <a href="https://kapitalfinanciero.github.io/finanzas-360-pro/" target="_blank">nuestra página de ayuda</a>.</p>
+                    <button class="print-button" onclick="printSection('ayuda')" style="background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%); margin-top: 1rem;">
                         Descargar Guía (PDF)
                     </button>
-                </div>
-
-                 <h3 style="margin-top: 2.5rem;">📞 Contacto y Soporte</h3>
-                <p>Si aún tienes dudas, nuestro equipo de soporte está para ayudarte:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 1rem;"><strong>Email:</strong> proyectokba@gmail.com</li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="https://wa.link/8t0nck" target="_blank" style="color: #25D366; text-decoration: none; display: inline-flex; align-items: center;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="social-icon">
-                            <strong>¡Chatea con nosotros en WhatsApp!</strong>
-                        </a>
-                    </li>
-                </ul>
-                <div class="contact-form">
-                    <h3>Formulario de Contacto</h3>
-                    <form action="https://formspree.io/f/mgvygdbr" method="POST">
-                        <div class="form-group">
-                            <label for="nombre-ayuda">Nombre completo</label>
-                            <input type="text" id="nombre-ayuda" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email-ayuda">Email</label>
-                            <input type="email" id="email-ayuda" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="asunto-ayuda">Asunto</label>
-                            <input type="text" id="asunto-ayuda" name="asunto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje-ayuda">Mensaje</label>
-                            <textarea id="mensaje-ayuda" name="mensaje" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Enviar Mensaje</button>
-                    </form>
                 </div>
             </div>
         </section>
