@@ -621,7 +621,7 @@
             color: white;
         }
 
-        /* === NUEVOS ESTILOS PARA LA SECCIÓN "AYUDA" === */
+        /* "Ayuda" Section Styles */
         #ayuda .content-section::before {
              background: linear-gradient(135deg, #6c757d, #495057);
         }
@@ -1099,78 +1099,69 @@
                     <div class="help-step">
                         <div class="help-step-number">1</div>
                         <h4>Hacer una Copia de la Plantilla</h4>
-                        <p>Al recibir el enlace, Google Sheets te pedirá directamente "Crear una copia". Haz clic en ese botón.</p>
-                        <div class="help-mockup">
-                             <img src="https://raw.githubusercontent.com/kapitalfinanciero/finanzas-360-pro/main/Ultima%20Versi%C3%B3n%20Hotmart%20-%20copia.png" alt="Crear una copia de la plantilla">
-                        </div>
-                        <p>Se creará una copia personal en tu propio Google Drive. Puedes cambiarle el nombre si lo deseas.</p>
+                        <p>Al recibir el enlace, Google Sheets te pedirá directamente "Crear una copia". Haz clic en ese botón para generar una copia personal en tu propio Google Drive.</p>
                     </div>
                 </div>
 
                 <div class="help-section">
-                    <h3>Paso 2: Configuración Inicial</h3>
+                    <h3>Paso 2: Autorizar Permisos del Script y Vincular Formulario</h3>
                     <div class="help-step">
                         <div class="help-step-number">2</div>
-                        <h4>Autorizar Permisos del Script</h4>
-                        <p>La plantilla incluye automatizaciones que requieren tu permiso para funcionar.</p>
+                        <h4>Autorizar y Vincular</h4>
+                        <p>Este es el paso más importante, ya que activa todas las automatizaciones y crea tu formulario de registro.</p>
                         <ol>
-                            <li>Busca el menú <strong>⚙️ Automatización</strong> en la barra superior.</li>
-                            <li>Haz clic en cualquier opción (ej. "Vincular Mi Formulario").</li>
+                            <li>Busca el menú <strong>⚙️ Automatización</strong> en la barra superior de tu hoja de cálculo.</li>
+                            <li>Haz clic en la primera opción: <strong>"1️⃣ Vincular Mi Formulario"</strong>.</li>
                             <li>Aparecerá una ventana de Google pidiendo autorización. Haz clic en <strong>"Continuar"</strong>.</li>
                             <li>Selecciona tu cuenta de Google.</li>
-                            <li>Verás una advertencia de seguridad. Haz clic en <strong>"Configuración avanzada"</strong> y luego en <strong>"Ir a [Nombre de tu proyecto] (no seguro)"</strong>.</li>
-                            <li>Finalmente, haz clic en <strong>"Permitir"</strong>.</li>
-                        </ol>
-                         <div class="highlight-box warning">
-                            <strong>Importante:</strong> Los permisos son necesarios para que las automatizaciones funcionen correctamente. Google muestra esta advertencia porque es un script personalizado para tu propia hoja.
-                        </div>
-                    </div>
-                    <div class="help-step">
-                        <div class="help-step-number">3</div>
-                        <h4>Configurar tus Datos Principales</h4>
-                        <p>Ve a la hoja <strong>"Configuración"</strong> (pestaña en la parte inferior):</p>
-                         <div class="help-mockup">
-                           <p>Hoja: Configuración<br>
-                           <small>D4: tu@email.com | H4: Tu Nombre</small></p>
-                           <img src="URL_IMAGEN_CONFIGURACION" alt="Configuración de correo y nombre">
-                        </div>
-                        <ol>
-                            <li><strong>Celda D4:</strong> Ingresa tu correo electrónico para recibir las alertas.</li>
-                            <li><strong>Celda H4:</strong> Ingresa tu nombre para personalizar los correos.</li>
-                        </ol>
-                    </div>
-                     <div class="help-step">
-                        <div class="help-step-number">4</div>
-                        <h4>Crear tu Formulario Personal</h4>
-                         <p>Este es el paso más importante. Creará un formulario privado para registrar tus movimientos:</p>
-                        <ol>
-                             <li>Ve al menú <strong>⚙️ Automatización</strong> y selecciona <strong>"1️⃣ Vincular Mi Formulario"</strong>.</li>
-                             <li>El script trabajará unos segundos.</li>
-                             <li>La URL de tu nuevo formulario aparecerá en la celda F4 de la hoja "Configuración".</li>
+                            <li>Verás una advertencia de seguridad. Haz clic en <strong>"Configuración avanzada"</strong> y luego en <strong>"Ir a Automatización Finanzas (no seguro)"</strong>.</li>
+                            <li>Finalmente, marca el Check <strong>"Seleccionar todos"</strong>. Luego debes mover la barra de desplazamiento hasta el final y da clic en <strong>"Continuar"</strong>.</li>
                         </ol>
                         <div class="highlight-box info">
-                           <strong>Consejo:</strong> Copia la URL del formulario y guárdala como marcador en tu navegador o como acceso directo en tu celular para un registro rápido.
+                           <strong>¡Éxito!</strong> El script creará tu formulario de uso personal y la URL aparecerá en la hoja "Configuración", celda F4. Te recomendamos guardar esa URL en los favoritos de tu celular para un acceso rápido.
                         </div>
                     </div>
                 </div>
                 
                 <div class="help-section">
-                    <h3>Paso 3: Personalización y Uso</h3>
+                    <h3>Paso 3: Personalización y Uso Diario</h3>
                      <div class="help-step">
-                        <div class="help-step-number">5</div>
-                        <h4>Definir tus Categorías y Presupuestos</h4>
+                        <div class="help-step-number">3</div>
+                        <h4>Define tus Categorías y Presupuestos</h4>
                         <p>En la hoja <strong>"Configuración"</strong>, personaliza tus categorías de ingresos y gastos. Luego, en la hoja <strong>"Presupuesto"</strong>, asigna un monto mensual a cada categoría. Esto es vital para las alertas.</p>
                     </div>
                      <div class="help-step">
-                        <div class="help-step-number">6</div>
-                        <h4>Sincronizar el Formulario</h4>
-                        <p>Después de modificar las categorías, ve a <strong>⚙️ Automatización</strong> y selecciona <strong>"🔄 Sincronizar Opciones del Formulario"</strong> para que tu formulario se actualice.</p>
+                        <div class="help-step-number">4</div>
+                        <h4>Sincroniza tu Formulario</h4>
+                        <p>Cada vez que modifiques tus categorías en la hoja de cálculo, ve a <strong>⚙️ Automatización → "🔄 Sincronizar Opciones del Formulario"</strong> para que tu formulario se actualice.</p>
                     </div>
                      <div class="help-step">
-                        <div class="help-step-number">7</div>
-                        <h4>Activar Automatizaciones</h4>
-                        <p>En el menú <strong>⚙️ Automatización</strong>, activa el <strong>"Resumen Mensual Automático"</strong> y los <strong>"Recordatorios de Pago Diarios"</strong> para recibir informes y alertas en tu correo.</p>
+                        <div class="help-step-number">5</div>
+                        <h4>Activa las Automatizaciones</h4>
+                        <p>En el menú <strong>⚙️ Automatización</strong>, puedes activar el <strong>"Resumen Mensual Automático"</strong> y los <strong>"Recordatorios de Pago Diarios"</strong> para recibir informes y alertas en tu correo.</p>
                     </div>
+                     <div class="help-step">
+                        <div class="help-step-number">6</div>
+                        <h4>Registra y Consulta</h4>
+                        <p>Usa tu nuevo formulario para registrar cada movimiento. Consulta la hoja <strong>"Dashboard"</strong> en cualquier momento para ver tus gráficos y estado financiero en tiempo real.</p>
+                    </div>
+                </div>
+                
+                <div class="help-section">
+                    <h3>Consejos Adicionales</h3>
+                    <div class="highlight-box">
+                        <strong>Registro Constante:</strong> La clave del éxito es registrar todos los movimientos, sin excepción. Crea el hábito de hacerlo inmediatamente después de cada gasto.
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Revisión Semanal:</strong> Dedica 10 minutos cada semana para revisar tu Dashboard y ajustar si es necesario.
+                    </div>
+                     <div class="highlight-box warning">
+                        <strong>Problemas Comunes:</strong> Si las automatizaciones no funcionan, verifica que los permisos estén otorgados correctamente (Paso 2) y que tu correo electrónico esté bien escrito en la configuración.
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <button class="print-button" onclick="printSection('ayuda')">Descargar / Imprimir Guía</button>
                 </div>
 
                 <div class="help-section">
