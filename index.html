@@ -870,18 +870,18 @@
                 border: none;
                 box-shadow: none;
             }
-            .printable .content-section, .printable .about-header, .printable .profile-grid, .printable .achievements-grid, .printable .cta-section {
+             .printable .content-section, .printable .about-header, .printable .profile-grid, .printable .achievements-grid, .printable .cta-section {
                  visibility: visible;
                  box-shadow: none;
                  padding: 0;
                  margin: 0;
                  border: none;
             }
-            .printable .content-section::before {
+             .printable .content-section::before {
                 display: none;
             }
-            /* --- NUEVA REGLA PARA OCULTAR ELEMENTOS NO DESEADOS AL IMPRIMIR --- */
-            .printable .contact-form, .printable .print-button-wrapper, .printable .content-section > h3, .printable .content-section > ul {
+            /* --- REGLA PARA OCULTAR ELEMENTOS NO DESEADOS AL IMPRIMIR --- */
+            .printable .contact-form, .printable .print-button-wrapper {
                 visibility: hidden;
                 display: none;
             }
@@ -1100,7 +1100,9 @@
                 <p>El Add-On opera como un procesador de datos dentro de la cuenta de Google del usuario (El Titular). <strong>En ningún momento los datos personales o financieros son transferidos, almacenados o procesados en servidores externos.</strong> Todo el tratamiento ocurre en los documentos y servicios de Google del propio Titular para las finalidades exclusivas del funcionamiento de la herramienta (envío de alertas, informes y recordatorios).</p>
                 <h3>4. DERECHOS DEL TITULAR</h3>
                 <p>Como Titular de los datos personales, tienes derecho a conocer, actualizar, rectificar, solicitar prueba de la autorización, ser informado del uso, presentar quejas, revocar la autorización y acceder gratuitamente a tus datos. Puedes ejercerlos editando directamente tus documentos de Google Sheets™ o desinstalando el Add-On para revocar todos los permisos.</p>
-                <button class="print-button" onclick="printSection('privacidad')">Descargar / Imprimir</button>
+                <div class="print-button-wrapper" style="text-align: center;">
+                    <button class="print-button" onclick="printSection('privacidad')">Descargar / Imprimir</button>
+                </div>
             </div>
         </section>
 
@@ -1121,7 +1123,9 @@
                 <p>El Servicio se proporciona "tal cual". No garantizamos que sea ininterrumpido o libre de errores. No nos hacemos responsables por la pérdida, corrupción o eliminación de datos, ya que estos residen en la cuenta de Google del usuario. La gestión de copias de seguridad es responsabilidad del usuario.</p>
                 <h3>5. LEY APLICABLE Y JURISDICCIÓN</h3>
                 <p>Estos términos se regirán e interpretarán de acuerdo con las leyes de la República de Colombia. Cualquier disputa se someterá a la jurisdicción de los tribunales de la ciudad de Medellín.</p>
-                <button class="print-button" onclick="printSection('terminos')">Descargar / Imprimir</button>
+                <div class="print-button-wrapper" style="text-align: center;">
+                    <button class="print-button" onclick="printSection('terminos')">Descargar / Imprimir</button>
+                </div>
             </div>
         </section>
 
