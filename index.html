@@ -11,7 +11,6 @@
             box-sizing: border-box;
         }
 
-        /* --- AJUSTE PARA CORREGIR EL FOOTER --- */
         html {
             height: 100%;
         }
@@ -27,11 +26,9 @@
         }
 
         .main-content {
-            flex-grow: 1; /* Permite que el contenido principal ocupe el espacio disponible */
-            margin-top: 80px; /* Ajustado para la altura del header fijo */
+            flex-grow: 1; 
+            margin-top: 80px;
         }
-        /* --- FIN DEL AJUSTE --- */
-
 
         /* Header Styles */
         .header {
@@ -772,7 +769,7 @@
             color: white;
             padding: 3rem 0;
             text-align: center;
-            width: 100%; /* Ensure footer spans full width */
+            width: 100%;
         }
 
         .footer-content {
@@ -873,14 +870,19 @@
                 border: none;
                 box-shadow: none;
             }
-             .printable .content-section, .printable .about-header, .printable .profile-grid, .printable .achievements-grid, .printable .cta-section {
+            .printable .content-section, .printable .about-header, .printable .profile-grid, .printable .achievements-grid, .printable .cta-section {
                  visibility: visible;
                  box-shadow: none;
                  padding: 0;
                  margin: 0;
                  border: none;
             }
-             .printable .content-section::before {
+            .printable .content-section::before {
+                display: none;
+            }
+            /* --- NUEVA REGLA PARA OCULTAR ELEMENTOS NO DESEADOS AL IMPRIMIR --- */
+            .printable .contact-form, .printable .print-button-wrapper, .printable .content-section > h3, .printable .content-section > ul {
+                visibility: hidden;
                 display: none;
             }
         }
@@ -1128,7 +1130,7 @@
                 
                 <div class="guide-header">
                     <h1>Manual de Instalación</h1>
-                    <p>Plantilla de Finanzas Personales</p>
+                    <p style="color: #FFFFFF; opacity: 1;">Plantilla de Finanzas Personales</p>
                 </div>
         
                 <div class="help-guide-wrapper">
@@ -1423,6 +1425,11 @@
                     <li><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora Colombia)</li>
                     <li><strong>Tiempo de respuesta:</strong> Máximo 24 horas</li>
                 </ul>
+                
+                <div class="print-button-wrapper" style="text-align: center; margin-bottom: 2rem;">
+                    <button class="print-button" onclick="printSection('ayuda')">Imprimir Manual</button>
+                </div>
+
                 <div class="contact-form">
                     <h3>Formulario de Contacto</h3>
                     <form action="https://formspree.io/f/mgvygdbr" method="POST">
