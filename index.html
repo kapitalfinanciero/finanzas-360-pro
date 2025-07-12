@@ -667,6 +667,58 @@
             box-shadow: 0 0 0 3px rgba(79, 111, 183, 0.1);
         }
 
+        /* NEW STYLES FOR HELP SECTION */
+        .help-section-container {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #4f6fb7;
+        }
+        .help-step {
+            background: white;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            position: relative;
+        }
+        .help-step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #4f6fb7;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid white;
+        }
+        .help-step h4 {
+            color: #4f6fb7;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            font-size: 1.1em;
+        }
+        .help-mockup {
+            background: #f1f3f4;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+        .help-mockup-icon {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #4f6fb7;
+        }
+
         /* Footer Styles */
         .social-icon {
             width: 20px;
@@ -848,7 +900,7 @@
             .hero p {
                 font-size: 1rem;
             }
-            .content-section, .contact-form, .feature-card, .achievement-card {
+            .content-section, .contact-form, .feature-card, .achievement-card, .help-section-container {
                 padding: 1.5rem;
             }
         }
@@ -1026,96 +1078,88 @@
         <section id="ayuda" class="section hidden printable">
             <div class="content-section">
                 <h2>Centro de Ayuda y Manual de Usuario</h2>
-                <p>¡Bienvenido! Esta guía te llevará paso a paso para instalar, configurar y dominar el <strong>Add-On "Finanzas 360 Pro"</strong>. Al finalizar, tendrás un sistema financiero personal totalmente automatizado.</p>
-                
+                <p>¡Bienvenido! Esta guía te llevará paso a paso para instalar, configurar y dominar el Add-On. Al finalizar, tendrás un sistema financiero personal totalmente automatizado.</p>
+
                 <div class="highlight-box info" style="margin-top: 2rem;">
                     <strong>Tiempo estimado de configuración:</strong> 10-15 minutos.
                 </div>
-        
-                <h3>Paso 1: Crear tu Copia Personal de la Plantilla</h3>
-                <p>Este es el punto de partida. Necesitas tu propia versión de la plantilla para poder editarla.</p>
-                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
-                    <h4 style="margin-top:0;">1.1 Accede a la Plantilla Maestra</h4>
-                    <p>Abre el enlace de la plantilla de Google Sheets que has adquirido.</p>
-                    
-                    <h4 style="margin-top:1.5rem;">1.2 Haz una Copia en tu Google Drive</h4>
-                    <ol>
-                        <li>En el menú superior, ve a <strong>Archivo → Crear una copia</strong>.</li>
-                        <li>Asígnale un nombre personal, como "Mis Finanzas Personales 2025".</li>
-                        <li>Asegúrate de que esté guardada en "Mi unidad" y haz clic en <strong>"Crear una copia"</strong>.</li>
-                    </ol>
-                    <div class="highlight-box" style="margin-top: 1rem;">
-                        <strong>¡Excelente!</strong> Ya tienes tu propia hoja de cálculo. Todo lo que hagas a partir de ahora será 100% privado en tu cuenta de Google.
+                
+                <div class="help-section-container">
+                    <h3>Paso 1: Crear tu Copia Personal</h3>
+                    <div class="help-step">
+                        <div class="help-step-number">1</div>
+                        <h4>Hacer una Copia</h4>
+                        <p>Para empezar, necesitas tu propia versión de la plantilla. Ve al menú <strong>Archivo → Crear una copia</strong>, dale un nombre personal y guárdala en tu Google Drive.</p>
+                        <div class="help-mockup">
+                            <div class="help-mockup-icon">📋</div>
+                            <p>Archivo → Crear una copia</p>
+                        </div>
                     </div>
                 </div>
-        
-                <h3 style="margin-top: 2.5rem;">Paso 2: Autorizar Permisos del Script y Vincular Formulario</h3>
-                <p>Este es el paso más importante para activar la magia de la automatización. Conectarás el Add-On con tu hoja.</p>
-                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
-                    <h4 style="margin-top:0;">2.1 Iniciar el Add-On y Solicitar Autorización</h4>
-                    <ol>
-                        <li>En tu nueva hoja de cálculo, ve al menú <strong>Extensiones → Finanzas 360 Pro → 🚀 Iniciar</strong>.</li>
-                        <li>Se abrirá una barra lateral. Haz clic en el primer botón: <strong>"1️⃣ Vincular Mi Formulario"</strong>.</li>
-                        <li>Aparecerá una ventana de "Se requiere autorización". Haz clic en <strong>"Continuar"</strong>.</li>
-                        <li>Selecciona la cuenta de Google con la que quieres usar la plantilla.</li>
-                    </ol>
-        
-                    <div class="highlight-box warning" style="margin-top: 1.5rem;">
-                        <h4>⚠️ ¡Atención a la Ventana de Seguridad!</h4>
-                        <p>Google te mostrará una advertencia porque este script no es de su tienda oficial. Es completamente seguro y necesario para que las automatizaciones funcionen.</p>
+
+                <div class="help-section-container">
+                    <h3>Paso 2: Autorizar Permisos y Vincular Formulario</h3>
+                    <div class="help-step">
+                        <div class="help-step-number">2</div>
+                        <h4>Iniciar y Autorizar</h4>
+                        <p>Este es el paso más importante para activar la automatización.</p>
                         <ol>
-                            <li>Haz clic en <strong>"Configuración avanzada"</strong> (puede aparecer en texto pequeño).</li>
-                            <li>Luego, haz clic en la opción de abajo: <strong>"Ir a Automatización Finanzas (no seguro)"</strong>.</li>
+                            <li>En tu nueva hoja, ve a <strong>Extensiones → Finanzas 360 Pro → 🚀 Iniciar</strong>.</li>
+                            <li>En la barra lateral, haz clic en <strong>"1️⃣ Vincular Mi Formulario"</strong>.</li>
+                            <li>Acepta los permisos que solicita Google.</li>
                         </ol>
                     </div>
-        
-                    <h4 style="margin-top:1.5rem;">2.2 Conceder los Permisos Necesarios</h4>
-                    <ol>
-                        <li>Se mostrará una lista de los permisos que el script necesita (modificar hojas, enviar correos, etc.).</li>
-                        <li><strong>Marca el Check 'Seleccionar todos'</strong> para aceptarlos todos de una vez.</li>
-                        <li>Mueve la barra de desplazamiento hasta el final de la ventana.</li>
-                        <li>Finalmente, haz clic en el botón azul de <strong>"Permitir"</strong>.</li>
-                    </ol>
-                     <div class="highlight-box" style="margin-top: 1rem;">
-                        <strong>¡Felicidades!</strong> Has completado la parte más técnica. El script ya está autorizado y habrá creado un formulario de Google en tu Drive, vinculándolo automáticamente. La URL de tu nuevo formulario aparecerá en la hoja <strong>"Configuración"</strong>, celda F4. ¡Guárdala en favoritos!
+
+                    <div class="help-step">
+                        <div class="help-step-number">3</div>
+                        <h4>Navegar la Advertencia de Seguridad</h4>
+                        <p>Google te mostrará una advertencia. Es un paso normal y seguro.</p>
+                        <div class="highlight-box warning">
+                            <p>En la ventana de advertencia, haz clic en <strong>"Configuración avanzada"</strong> y luego en <strong>"Ir a Automatización Finanzas (no seguro)"</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="help-step">
+                        <div class="help-step-number">4</div>
+                        <h4>Conceder Permisos Finales</h4>
+                        <p>Para finalizar la autorización:</p>
+                        <ol>
+                            <li>En la pantalla de permisos, marca el <strong>Check 'Seleccionar todos'</strong>.</li>
+                            <li>Mueve la barra de desplazamiento hasta abajo.</li>
+                            <li>Haz clic en <strong>"Permitir"</strong>.</li>
+                        </ol>
+                        <div class="highlight-box" style="background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%); border-left-color: #38b2ac;">
+                           <strong>¡Felicidades!</strong> El Add-On está conectado. La URL de tu formulario personal aparecerá en la hoja <strong>"Configuración"</strong> (celda F4). ¡Guárdala en favoritos!
+                        </div>
                     </div>
                 </div>
                 
-                <h3 style="margin-top: 2.5rem;">Paso 3: Configurar y Personalizar</h3>
-                 <p>Ahora, ajusta la plantilla a tu vida financiera.</p>
-                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
-                    <h4 style="margin-top:0;">3.1 Personaliza tus Categorías</h4>
-                    <p>En la hoja <strong>"Configuración"</strong>, edita las listas de categorías de ingresos y gastos, así como tus métodos de pago.</p>
-        
-                    <h4 style="margin-top:1.5rem;">3.2 Sincroniza tu Formulario</h4>
-                    <p>Cada vez que cambies las categorías, debes actualizar tu formulario. Es muy fácil:</p>
-                     <ol>
-                        <li>En la barra lateral del Add-On, haz clic en <strong>"🔄 Sincronizar Opciones"</strong>.</li>
-                        <li>¡Listo! Tu formulario ahora mostrará las nuevas opciones que añadiste.</li>
-                    </ol>
+                <div class="help-section-container">
+                    <h3>Paso 3: Personalización y Uso</h3>
+                     <div class="help-step">
+                        <div class="help-step-number">5</div>
+                        <h4>Configura tus Datos</h4>
+                         <p>Ve a la hoja <strong>"Configuración"</strong> para añadir tus categorías de gastos, ingresos y métodos de pago. ¡No olvides sincronizar los cambios con el botón <strong>"🔄 Sincronizar Opciones"</strong> en la barra lateral!</p>
+                        <div class="help-mockup">
+                            <div class="help-mockup-icon">📝</div>
+                            <p>Personaliza las categorías según tu estilo de vida</p>
+                        </div>
+                    </div>
+                    <div class="help-step">
+                        <div class="help-step-number">6</div>
+                        <h4>Registra tus Movimientos</h4>
+                        <p>Usa el enlace a tu <strong>formulario personal</strong> para registrar cada gasto e ingreso de forma rápida y sencilla desde cualquier dispositivo.</p>
+                   </div>
                 </div>
-        
-                <h3 style="margin-top: 2.5rem;">Paso 4: ¡A Registrar se ha Dicho!</h3>
-                 <p>Con todo configurado, el uso diario es muy sencillo.</p>
-                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
-                    <h4 style="margin-top:0;">4.1 Registra Gastos e Ingresos</h4>
-                    <p>Usa el <strong>formulario de Google</strong> (el que guardaste en favoritos) para registrar cada movimiento. Es la forma más rápida y ordenada, y los datos aparecerán automáticamente en tu hoja.</p>
-        
-                    <h4 style="margin-top:1.5rem;">4.2 Activa tus Alertas</h4>
-                    <p>No te olvides de activar las automatizaciones desde la barra lateral del Add-On para recibir por correo tus resúmenes y recordatorios de pagos.</p>
-        
-                     <h4 style="margin-top:1.5rem;">4.3 ¿No llegan los correos?</h4>
-                    <p>Verifica que tu correo electrónico esté correctamente escrito en la hoja <strong>"Configuración"</strong>, celda D4, y asegúrate de haber activado las automatizaciones.</p>
-                </div>
-        
+
                 <div style="text-align: center; margin-top: 3rem;">
                     <button class="print-button" onclick="printSection('ayuda')" style="background: linear-gradient(135deg, #4f6fb7 0%, #3b5998 100%);">
                         Descargar Guía (PDF)
                     </button>
                 </div>
-        
+
                  <h3 style="margin-top: 2.5rem;">📞 Contacto y Soporte</h3>
-                <p>Si necesitas ayuda adicional, nuestro equipo de soporte está disponible:</p>
+                <p>Si aún tienes dudas, nuestro equipo de soporte está para ayudarte:</p>
                 <ul style="list-style: none; padding-left: 0;">
                     <li style="margin-bottom: 1rem;"><strong>Email:</strong> proyectokba@gmail.com</li>
                     <li style="margin-bottom: 1rem;">
@@ -1124,20 +1168,6 @@
                             <strong>¡Chatea con nosotros en WhatsApp!</strong>
                         </a>
                     </li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="https://www.youtube.com/@KapitalFinanciero" target="_blank" style="color: #FF0000; text-decoration: none; display: inline-flex; align-items: center;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube Logo" class="social-icon">
-                            <strong>Kapital Financiero en YouTube</strong>
-                        </a>
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <a href="https://www.instagram.com/kapitalfinanciero" target="_blank" style="color: #E4405F; text-decoration: none; display: inline-flex; align-items: center;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="social-icon">
-                            <strong>@kapitalfinanciero en Instagram</strong>
-                        </a>
-                    </li>
-                    <li><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora Colombia)</li>
-                    <li><strong>Tiempo de respuesta:</strong> Máximo 24 horas</li>
                 </ul>
                 <div class="contact-form">
                     <h3>Formulario de Contacto</h3>
